@@ -3,6 +3,7 @@ nav:
     - Home: index.md
     - Chapters:
           - Chapter 1 - Setup: chapter-1-setup.md
+          - Chapter 2 - Variables & Functions: chapter-2-variables-functions.md
 
 theme:
     name: material
