@@ -34,7 +34,7 @@ Listed below are some of the tools we will use throughout the course and how to 
 
 This is the code editor you'll be using for this entire course (and often while doing web development in general). Keep in mind it is not a full _IDE (integrated development environment)_ so we'll need a few extra things to really get started.
 
-You'll find the download link here for most platforms: [Download VSCode](https:// code.visualstudio.com/Download)
+You'll find the download link here for most platforms: [Download VSCode](https://code.visualstudio.com/Download)
 
 Choose one that is appropriate for your computer (the largest download buttons should also work):
 
@@ -59,7 +59,7 @@ Now you have somewhere to put all your code and your projects. My suggestion for
 
 This version control software is integral later in the course (and for any future programming you do), so ensure the install works from the very beginning.
 
-You'll find the download link here for most platforms: [Download Git](https:// git-scm.com/downloads)
+You'll find the download link here for most platforms: [Download Git](https://git-scm.com/downloads)
 
 -   Windows
     -   Download the latest _x64_ version featured at the top (or via the standalone installer), unless you happen to have ARM64.
@@ -81,7 +81,7 @@ You'll find the download link here for most platforms: [Download Git](https:// g
 
 NodeJS is a JavaScript runtime environment that will let us run JavaScript inside of our VSCode setup. You'll also be using it later in web development courses.
 
-You'll find the download link here for most platforms: [Download NodeJS](https:// nodejs.org/en/download)
+You'll find the download link here for most platforms: [Download NodeJS](https://nodejs.org/en/download)
 
 I suggest going for the prebuilt Node.js packages found a little further down the page, here:
 ![](img/download_nodejs.png)
@@ -112,11 +112,11 @@ Once you've downloaded it, try opening it up to see if it works!
 
 Assuming nothing works for one reason or another, there are a few online JavaScript editors which will allow you to get started on tasks:
 
--   [p5js online editor](https:// editor.p5js.org/)
+-   [p5js online editor](https://editor.p5js.org/)
     -   By removing the draw and setup functions (blank textbox), you can use it as a "normal" code editor.
     -   Allows you to save projects if you are signed up
     -   **DOES** work for p5js code.
--   [Programiz](https:// www.programiz.com/javascript/online-compiler/)
+-   [Programiz](https://www.programiz.com/javascript/online-compiler/)
     -   Simple enough and allows you to run standard JavaScript code
     -   Will **NOT** work for p5js code.
 -   The Console
