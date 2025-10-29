@@ -32,6 +32,7 @@ function countToFour(){
 ```
 
 Change the code above so that it counts all the way to four by doing the following:
+
 - Add a function call to `countToThree()` from `countToFour()`.
 - Make `countToFour()` print a 4 after the call to `countToThree()`.
 - Call the `countToFour()` function!
