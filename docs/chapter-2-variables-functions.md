@@ -2,9 +2,19 @@ This chapter will mainly focus on getting used to variables and functions. Using
 
 So far, you've used `console.log()` to print things from your program without an explanation of what it really is. It is a function built into JavaScript that we can call on to print things, but now it is time we build our own functions.
 
+!!! Note
+	Recall that // is a comment and will not be run as code. In tasks during the coming chapters, you will encounter // TODO, which means I expect you to implement the function. Also please note that the file needs to end with .js. This is very important, as it will not be recognized as JavaScript without it.
+
 ## 2.1 Basic functions
 ### 2.1.1 Count to Three
-Create a function using `console.log()` to print 1, 2, 3 each on separate lines. 
+Remember how you've previously used this: 
+```js
+console.log(1);
+console.log(2);
+console.log(3);
+```
+
+I'd now like you to input that into a function so that we could reuse all those lines of code. Create a function using `console.log()` to print 1, 2, 3 like before, replacing the `// TODO` below with the console logs from above. 
 ```js
 function countToThree(){
 	// TODO
@@ -18,10 +28,11 @@ function countToThree(){
 	// TODO
 }
 
-countToThree();
+countToThree(); // This one!
 ```
 
 Now you should see 1, 2, 3 (on separate lines) in your terminal!
+
 ### 2.1.2 Count to Four
 Now let's assume we want to create a program that writes 1, 2, 3, 4 instead. We could write the same function `countToThree()` again, add a fourth log and rename it `countToFour()`. That would be inefficient though, as we've already done a majority of the work in `countToThree()`. Therefore we will reuse it.
 
@@ -33,14 +44,14 @@ function countToFour(){
 
 Change the code above so that it counts all the way to four by doing the following:
 
-- Add a function call to `countToThree()` from `countToFour()`.
-- Make `countToFour()` print a 4 after the call to `countToThree()`.
+- Add a function call to `countToThree()` from inside `countToFour()`.
+- Make `countToFour()` print a 4 using `console.log()` after the call to `countToThree()`.
 - Call the `countToFour()` function!
 
 ## 2.2 Variables in functions
 ### 2.2.1 The Pythagorean Theorem
 
-Don't worry, we won't deep dive into mathematics in this course, but it makes for a good example in this case. According to the Pythagorean theorem, in a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares on the lengths of the other two sides. This can be expressed via the formula:
+Don't worry, we won't deep dive into mathematics in this course, but it makes for a good example in this case. We'll be writing everything inside of a function for the coming task, but there will be explanations. According to the Pythagorean theorem, in a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares on the lengths of the other two sides. This can be expressed via the formula:
 
 $a^2+b^2=c^2$
 
@@ -70,6 +81,7 @@ function calculateHypotenuse() {
 ```
 
 Explanation:
+
 - The function introduces the first variables `a` and `b`, initiating them with values 3 and 4.
 - We then create new variables for the squared values of a and b with appropriate naming, such as `aSquared` containing the value 9.
 - Towards the end, we calculate c via `Math.sqrt()`, providing us with the square root of `cSquared`. 
@@ -218,6 +230,7 @@ Tips:
 Sometimes buying books for hundreds of SEK may feel expensive (especially as a computer science student for which much material can be found for free). As a coping mechanism, one may consider calculating the cost per hour of reading, to make it more bearable.
 
 Below, write a function that calculates the cost of a book over a certain amount of time. Have the function include parameters for:
+
 - How much the book will cost?
 - How many pages the book has?
 - How many percent of the book do you intend to read?
