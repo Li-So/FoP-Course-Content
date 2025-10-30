@@ -4,6 +4,7 @@ nav:
     - Chapters:
           - Chapter 1 - Setup: chapter-1-setup.md
           - Chapter 2 - Variables & Functions: chapter-2-variables-functions.md
+          - Chapter 3 - Conditionals: chapter-3-conditionals.md
 
 theme:
     name: material
