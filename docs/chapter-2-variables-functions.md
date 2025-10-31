@@ -3,7 +3,7 @@ This chapter will mainly focus on getting used to variables and functions. Using
 So far, you've used `console.log()` to print things from your program without an explanation of what it really is. It is a function built into JavaScript that we can call on to print things, but now it is time we build our own functions.
 
 !!! Note
-	Recall that // is a comment and will not be run as code. In tasks during the coming chapters, you will encounter // TODO, which means I expect you to implement the function. Also please note that the file needs to end with .js. This is very important, as it will not be recognized as JavaScript without it.
+	Recall that // is a comment and will not be run as code. In tasks during the coming chapters, you will encounter // Write your code here!, which means I expect you to implement the function. Also please note that the file needs to end with .js. This is very important, as it will not be recognized as JavaScript without it.
 
 ## 2.1 Basic functions
 ### 2.1.1 Count to Three
@@ -150,7 +150,7 @@ function calculateHypotenuse(a, b) {
 }
 
 
-let length = hypotenuseLength(1, 2);
+let length = calculateHypotenuse(1, 2);
 console.log("The length of the hypotenuse is " + length);
 ```
 
@@ -166,7 +166,7 @@ function calculateHypotenuse(a, b) {
 }
 
 
-let length = hypotenuseLength(1, 2);
+let length = calculateHypotenuse(1, 2);
 console.log("The length of the hypotenuse is " + length);
 ```
 
