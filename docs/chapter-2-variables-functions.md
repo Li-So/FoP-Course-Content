@@ -14,10 +14,10 @@ console.log(2);
 console.log(3);
 ```
 
-I'd now like you to input that into a function so that we could reuse all those lines of code. Create a function using `console.log()` to print 1, 2, 3 like before, replacing the `// TODO` below with the console logs from above. 
+I'd now like you to input that into a function so that we could reuse all those lines of code. Create a function using `console.log()` to print 1, 2, 3 like before, replacing the `// Write your code here!` below with the console logs from above. 
 ```js
 function countToThree(){
-	// TODO
+	// Write your code here!
 }
 ```
 
@@ -25,7 +25,7 @@ Once you're done, save and run the code... nothing will happen. Because to run t
 
 ```js
 function countToThree(){
-	// TODO
+	// Write your code here!
 }
 
 countToThree(); // This one!
@@ -38,7 +38,7 @@ Now let's assume we want to create a program that writes 1, 2, 3, 4 instead. We 
 
 ```js
 function countToFour(){
-	// TODO
+	// Write your code here!
 }
 ```
 
@@ -272,7 +272,7 @@ This task will not require a clean function.
 
 ```js
 function printChange(totalPrice){
-	// TODO
+	// Write your code here!
 }
 ```
 Tips:
