@@ -162,21 +162,6 @@ calculateAverage(a, b);
 ### **3.4.3 if-else string concatenation**
 Let's practice some conditionals. We want to receive some number n, then create a string depending on what it is divisible by. In this case, we'll only check whether it is divisible by 3, 5 or both. If it is divisible by 3, add *"Fizzle "* to the string. If divisible by 5, add the string *"Pop "*. If divisible by both 3 and 5, add only *"FizzlePop "*. 
 
-```js
-// This is one solution to the issue:
-function fizzlePop(n) {
-    let ans = "";
-
-    if (n % 5 === 0 && n % 3 === 0) {
-        ans += "FizzlePop ";
-    } else if (n % 5 === 0) {
-        ans += "Pop ";
-    } else if (n % 3 === 0) {
-        ans += "Fizzle ";
-    }
-    return ans;
-}
-```
 Tips:
 
 - Use if and if-else statements, they'll be very helpful.
