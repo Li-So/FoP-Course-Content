@@ -3,7 +3,7 @@ This chapter will mainly focus on getting used to variables and functions. Using
 So far, you've used `console.log()` to print things from your program without an explanation of what it really is. It is a function built into JavaScript that we can call on to print things, but now it is time we build our own functions.
 
 !!! Note
-	Recall that // is a comment and will not be run as code. In tasks during the coming chapters, you will encounter // TODO, which means I expect you to implement the function. Also please note that the file needs to end with .js. This is very important, as it will not be recognized as JavaScript without it.
+	Recall that // is a comment and will not be run as code. In tasks during the coming chapters, you will encounter // Write your code here!, which means I expect you to implement the function. Also please note that the file needs to end with .js. This is very important, as it will not be recognized as JavaScript without it.
 
 ## 2.1 Basic functions
 ### 2.1.1 Count to Three
@@ -14,10 +14,10 @@ console.log(2);
 console.log(3);
 ```
 
-I'd now like you to input that into a function so that we could reuse all those lines of code. Create a function using `console.log()` to print 1, 2, 3 like before, replacing the `// TODO` below with the console logs from above. 
+I'd now like you to input that into a function so that we could reuse all those lines of code. Create a function using `console.log()` to print 1, 2, 3 like before, replacing the `// Write your code here!` below with the console logs from above. 
 ```js
 function countToThree(){
-	// TODO
+	// Write your code here!
 }
 ```
 
@@ -25,7 +25,7 @@ Once you're done, save and run the code... nothing will happen. Because to run t
 
 ```js
 function countToThree(){
-	// TODO
+	// Write your code here!
 }
 
 countToThree(); // This one!
@@ -38,7 +38,7 @@ Now let's assume we want to create a program that writes 1, 2, 3, 4 instead. We 
 
 ```js
 function countToFour(){
-	// TODO
+	// Write your code here!
 }
 ```
 
@@ -150,7 +150,7 @@ function calculateHypotenuse(a, b) {
 }
 
 
-let length = hypotenuseLength(1, 2);
+let length = calculateHypotenuse(1, 2);
 console.log("The length of the hypotenuse is " + length);
 ```
 
@@ -166,7 +166,7 @@ function calculateHypotenuse(a, b) {
 }
 
 
-let length = hypotenuseLength(1, 2);
+let length = calculateHypotenuse(1, 2);
 console.log("The length of the hypotenuse is " + length);
 ```
 
@@ -212,15 +212,17 @@ Since each player has a turn order they start with, we can use numbers to repres
 
 ```js
 function getTurnOrder(totalPlayers, currentTurn, skipAmount){
-	// TODO
+	// Write your code here!
 }
 ```
 
 Given the total amount of players, whose current turn it is (player 1, 2 or 3 etc.) and how many turns we want to skip, return whose turn it is supposed to be, e.g:
 ```js
-let currentTurn = getTurnOrder(3, 1, 5);
-console.log(currentTurn); // Prints 3, now we know it is player 3's turn!
+let currentTurn = getTurnOrder(3, 1, 4);
+console.log(currentTurn); // Prints 2, now we know it is player 2's turn!
 ```
+
+The function will not be a perfect representation since it is flawed, a number of skips evenly divisible by the amount of players will result in 0. This could be fixed using a conditional, but we'll talk about those later.
 
 Tips:
 
@@ -272,7 +274,7 @@ This task will not require a clean function.
 
 ```js
 function printChange(totalPrice){
-	// TODO
+	// Write your code here!
 }
 ```
 Tips:
