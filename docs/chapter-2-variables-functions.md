@@ -212,15 +212,17 @@ Since each player has a turn order they start with, we can use numbers to repres
 
 ```js
 function getTurnOrder(totalPlayers, currentTurn, skipAmount){
-	// TODO
+	// Write your code here!
 }
 ```
 
 Given the total amount of players, whose current turn it is (player 1, 2 or 3 etc.) and how many turns we want to skip, return whose turn it is supposed to be, e.g:
 ```js
-let currentTurn = getTurnOrder(3, 1, 5);
-console.log(currentTurn); // Prints 3, now we know it is player 3's turn!
+let currentTurn = getTurnOrder(3, 1, 4);
+console.log(currentTurn); // Prints 2, now we know it is player 2's turn!
 ```
+
+The function will not be a perfect representation since it is flawed, a number of skips evenly divisible by the amount of players will result in 0. This could be fixed using a conditional, but we'll talk about those later.
 
 Tips:
 
