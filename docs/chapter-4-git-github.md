@@ -81,6 +81,8 @@ Depending on your VSCode installation (which *should* include this feature), you
 ### 4.2 Git
 I will try to show each part using both a graphical user interface via *Github Desktop* and via *a terminal*. The terminal gives full access to all git functionality, but may feel intimidating to start with. I encourage you to try though, as understanding what happens in the terminal will give a better understanding of what actually happens in the background.
 
+**The Github Desktop part is coming! Screenshots still required.**
+
 !!! Note
 	My chosen directory will be called `testGit`, but you may want to use a different name for the directory where you try out git.
 
