@@ -6,7 +6,7 @@ Github is a cloud-based hosting system that works **with** Git. Essentially, you
 This chapter will introduce what both Git and Github are in more detail, as well as some exercises to get used to them.
 
 !!! Note
-	This chapter may become especially confusing as it is a brand new topic in the middle of learning JavaScript. The reason for this abrupt break is due to a group assignment. I **strongly** suggest reviewing the slides and using the [training website](https://learngitbranching.js.org/) to see the structure visualized.
+	This chapter may become especially confusing as it is a brand new topic in the middle of learning JavaScript. The reason for this abrupt break is due to a group assignment. I **strongly** suggest reviewing the slides and using the [training website](https://learngitbranching.js.org/) to see the structure visualized. The optional chapters may be **very** helpful to read through, though not essential.
 ### 4.1 Special Background Information (optional chapter)
 There may be some terminology you aren't familiar with in this chapter which isn't Git specific. I will try to introduce some of the most fundamental ones here, just to make sure everyone is on the same page.
 
@@ -62,7 +62,7 @@ When you open a terminal, it is more than likely you start here:
 
 ![](img/chapter-4/new_empty_terminal.png)
 
-The small `~` sign essentially shows we are in our home folder. It is normally the folder that contains your desktop folder, your documents folder, etc:
+The small `~` sign before `$` essentially shows we are in our home folder. It is normally the folder that contains your desktop folder, your documents folder, etc:
 
 ![](img/chapter-4/file_explorer_home.png)
 
@@ -85,14 +85,14 @@ I will try to show each part using both a graphical user interface via *Github D
 	My chosen directory will be called `testGit`, but you may want to use a different name for the directory where you try out git.
 
 #### 4.2.1 Init
-In order to get started with git, you will need to create a *repository*. In essence, you are simply telling git that everything in a certain folder or [[#^d709a4|directory), should be saved as part of a project.
+In order to get started with git, you will need to create a *repository*. In essence, you are simply telling git that everything in a certain folder (or *directory* if you will), should be saved as part of a project.
 
 Let's create a fresh new repository.
 ##### Terminal
 ```bash
 linus@JU-5CD5196T1H:~/testGit$ git init
 ```
-Above, I created a new folder *testGit* and ran the command *git init*. We now have a repository to work from!
+Above, I created a new folder *testGit* in my `home` directory (file explorer or terminal) and ran the command *git init*. We now have a repository to work from!
 
 #### 4.2.2 Commit
 As a next step for doing something in the project, we'll create an easy text file in the folder. Let's make *helloWorld.txt* and write:
@@ -104,13 +104,13 @@ Hi! My name is...
 !!! Note
 	Do not fill in your name just yet! We'll do that later.
 
-If you now use the command `git status`, you should notice it mentions untracked files. That is because we have yet to tell git that this is a file we want to track changes in. 
+If you now use the command `git status` in the terminal, you should notice it mentions untracked files. That is because we have yet to tell git that this is a file we want to track changes in. 
 
 To track it, we use `git add helloWorld.txt`. Using `git status` now will display:`Changes to be committed:` and `helloWorld.txt` should be listed beneath it. So what did we actually do? 
 
 Git has 3 separate stages. Changes can be `untracked, staged or committed.` New changes must be added to **the staging area** if you later want to commit them (sometimes you don't want to commit all you've done). 
 
-For now, we've added our new file to the staging area, telling git we want to commit it. 
+For now, we've added our new file to the staging area, which is equivalent to telling git we want to commit it. 
 
 If it is our very first commit, we first have to identify ourselves to git so that it knows who to attribute the commit to. We do this via the following:
 ```bash
@@ -146,19 +146,20 @@ Use `git add helloWorld.txt` to add all your changes and use `git commit -m "Add
 Now we have some changes on the branch **add-name**, changes we want to our **main** branch. To do this we can use `git merge` via the following:
 
 - Make sure you are on the **main** branch
-	- You can check which you are on via `git branch`, which will show you the existing local branches as well as which you are on via an asterisk `*`.
-	- You can switch branch using `git checkout <branchName>`
+	- You can check branch you are on via `git branch`, which will display the existing local branches as well as your current branch via an asterisk `*`.
+	- You can switch branch using `git checkout <branch-name>`
 - Once on the **main** branch, write `git merge add-name`: This will merge **add-name** into your **main** branch.
 
-Perfect! Now we have the name we added from our **add-name** branch in our **main** branch.
+Perfect! Now we have the name we added from our **add-name** branch in our **main** branch. Double check the textfile to make sure this is true.
 
 #### 4.2.5 Rebase
-An alternative to merging for changes in a different branch, is to rebase them. While merging is very clearly two different histories merging together, rebasing is closer to putting the commits of another branch, on top of your branch of choice. It can be a powerful tool if you don't enjoy the messiness of many merges, though I recommend using merge in general for this course.
+An alternative to merging for changes in a different branch, is to rebase them. While merging shows two different histories merging together, rebasing is closer to putting the commits of another branch, on top of your branch of choice. It can be a powerful tool if you don't enjoy the messiness of many merges, though I recommend using merge in general for this course if you are uncomfortable with rebasing.
 
 !!! Note
 	This example uses the branch **main** and **add-name**. Adapt it to your own branch names.
 
 Here's an example you can do to try it out:
+
 1. Commit something on the **main** branch, e.g. the text example we did in the chapters before. Add a file, change a line , etc.
 2. Switch branch to **add-name** and commit something.
 3. Now go back to the **main** branch and write:
@@ -171,10 +172,10 @@ Here's an example you can do to try it out:
 Git has a lot of different commands that are helpful in a variety of situations. I am not going to list them all here, nor their full use, but here are some useful things you may find a use for which you can search for later. 
 
 - `git commit --amend`
-	- Allows you to add things to your last commit in case you forgot files or want to change the commit message.
+	- Allows you to add things to your last commit in case you forgot files or want to change the commit message
 - `git commit -a`
 	- Stage AND commit all of your changes
-	- Same as running `git add .` and then `git commit`.
+	- Same as running `git add .` and then `git commit`
 	- **ONLY APPLIES TO TRACKED FILES.**
 	- Don't forget to add a commit message!
 - `git stash`
@@ -193,6 +194,9 @@ Git has a lot of different commands that are helpful in a variety of situations.
 - `git reset`
 	- Unstage changes or revert your working directory to the previous commit
 
+
+---
+
 ### 4.2 Github
 We will now begin sharing our work by reviewing the methods of storing our git repository in the cloud via Github. Sending code back and forth via emails, text messages or through a phone call are all quite inefficient. Sharing our code by means of Github though allows us to collaborate wherever we are without major issues.
 
@@ -208,14 +212,15 @@ You should now find yourself here:
 ![](img/chapter-4/new_github_repository.png)
 
 Let's walk through all the options visible on this page:
+
 - **Repository name**
-	- Choose a name for your repository, using `-` as spaces.
-	- If you don't care much about what to name it (if you're experimenting) then you can use their standard name marked in green under the text-bar.
+	- Choose a name for your repository, using `-` as spaces (e.g. test-repository).
+	- If you don't care much about what to name it (if you're experimenting) then you can use their standard name marked in green under the text-bar (suggested by Github).
 - **Description**
 	- Choose some form of description for your project. 
 	- Keep it clear, keep it concise.
 - **Visibility**
-	- Do you want the world to see the project or not?
+	- Private or public, if public anyone can view it
 	- If you're doing it outside of a task, you might want to put it on private
 		- But if it **is** for a task, make sure it is public (otherwise I cannot grade)
 - **Template**
@@ -245,15 +250,16 @@ Let's similarly walk through everything on this page.
 	- This option will start a cloud development environment (an alternative to coding in VSCode), though this is not very common in most professional settings.
 - **Invite collaborators** 
 	- If you want to add others to the project immediately, you can do so via the *invite collaborators* button.
-	- Not necessary in this case
+	- Not necessary in this case.
 - **Quick setup**
 	- As it states, more so if you've done this before. Provided you have **Github Desktop** you can click *Set up in Desktop* to quickly get the repository on your local machine.
 - **New repository on command line**
-	- If you don't already have a local repository on your computer that you want to push, you can copy the block of code and paste it in your terminal. 
+	- If you don't already have a local repository on your computer that you want to push, you can copy the block of code and paste it in your terminal.
 	- Now you have the repository locally!
 - **Push an existing repository from the command line**
 	- If you already had a local repository, you can copy the block of code and run it in the same repository as your local one.
 	- Keep in mind, you may face **conflicts** if you added a README or something similar, as the content will be different.
+
 For now, we will use **New repository on command line**. Copy the code block and open up a terminal. If you have a folder for storing programming projects, go to that one using the commands we learned before (`ls`,`cd`). Create a separate folder for your project (named the same) and paste the code block. You should now have the project locally (there should be a file called **README** if you want to make sure).
 
 #### 4.2.2 Push
