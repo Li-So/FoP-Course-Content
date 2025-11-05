@@ -288,7 +288,7 @@ Fill in some information (as you would with any regular commit) and click **comm
 
 ![](img/chapter-4/hellotxt_addition.png)
 
-Finally, go back to your repository. Run the command `git pull` and you should have the changes locally.
+Finally, go back to your repository. Run the command `git pull` and you should have the changes locally. You may encounter warning text the first time you run `git pull` as git requires some guidance on how you want to reconcile divergent branches. For the purposes of this course, if you encounter the error you can run this line: `git config pull.rebase false`. Now git pull will integrate the changes via a merge. 
 
 !!! Note
 	`git pull` is technically a combination of two commands: `git fetch` (which fetches changes from the remote repository) and `git merge` (usually) which merges the new changes with what existed in your repository previously.  	
