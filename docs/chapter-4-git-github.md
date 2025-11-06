@@ -3,7 +3,7 @@ Git is an open-source distributed version control system created by Linus Torval
 
 Github is a cloud-based hosting system that works **with** Git. Essentially, your codebase is stored elsewhere. Github is a very popular tool for sharing and collaborating on code, hosting everything from personal to professional projects. The workflow you learn from here is most likely what you will use in the industry (with the possibility for some variations).
 
-This chapter will introduce what both Git and Github are in more detail, as well as some exercises to get used to them.
+This chapter will introduce what both Git and Github are in more detail, as well as some tutorials to get used to them.
 
 !!! Note
 	This chapter may become especially confusing as it is a brand new topic in the middle of learning JavaScript. The reason for this abrupt break is due to a group assignment. I **strongly** suggest reviewing the slides and using the [training website](https://learngitbranching.js.org/) to see the structure visualized. The optional chapters may be **very** helpful to read through, though not essential.
@@ -79,12 +79,12 @@ Note how the terminal now looks different, and `~` has changed into `~/FoP-Cours
 
 Depending on your VSCode installation (which *should* include this feature), you can also write `code .` in the folder (directory) you want VSCode to open up in. This can save you some time instead of having to look for the project in normal folders.
 ### 4.2 Git
-I will try to show each part using both a graphical user interface via *Github Desktop* and via *a terminal*. The terminal gives full access to all git functionality, but may feel intimidating to start with. I encourage you to try though, as understanding what happens in the terminal will give a better understanding of what actually happens in the background.
+I will try to show each part using both a graphical user interface via *Github Desktop* and via *a terminal*. The terminal gives full access to all git functionality, but may feel intimidating to start with. I encourage you to try though, as understanding what happens in the terminal will give a better understanding of what actually happens in the background. 
 
 **The Github Desktop part is coming! Screenshots still required.**
 
 !!! Note
-	My chosen directory will be called `testGit`, but you may want to use a different name for the directory where you try out git.
+	My chosen directory when using only git (not Github Desktop) will be called `testGit`, but you may want to use a different name for the directory where you try out git or Github Desktop.
 
 #### 4.2.1 Init
 In order to get started with git, you will need to create a *repository*. In essence, you are simply telling git that everything in a certain folder (or *directory* if you will), should be saved as part of a project.
@@ -95,6 +95,38 @@ Let's create a fresh new repository.
 linus@JU-5CD5196T1H:~/testGit$ git init
 ```
 Above, I created a new folder *testGit* in my `home` directory (file explorer or terminal) and ran the command *git init*. We now have a repository to work from!
+
+---
+
+If you instead opt to actively use Github Desktop, create a [Github Account](https://github.com/signup?source=form-home-signup&user_email=). Sign in and you should see the following:
+
+![alt text](github_desktop_start.png)
+
+Using Github desktop, we instead press `Create a new repository on our local drive` and we should see this window:
+![alt text](github_desktop_new_repo.png)
+
+From here you may choose:
+
+- Repository name (your project name)
+- Some description (for others to read and understand the project)
+- The path (where you want to store it)
+- gitignore (see Github subchapter)
+- license (see Github subchapter)
+
+!!! Note
+	Peeking ahead into the Github subchapter, you may notice several parts are very similar to creating a repository on their website, which may not be unsurprising. I have left some of the choices here unexplained, as they are explained in the Github subchapter.
+
+For the examples using Github Desktop, I'll use the repository name `fantastic-dragon`. We should now automatically proceed to the following screen:
+
+**EXPLANATION TO BE ADDED**
+
+![alt text](github_desktop_started_repo.png)
+
+![alt text](github_desktop_hello_world_txt.png)
+
+**EXPLANATION TO BE ADDED**
+
+![alt text](github_desktop_commit.png)
 
 #### 4.2.2 Commit
 As a next step for doing something in the project, we'll create an easy text file in the folder. Let's make *helloWorld.txt* and write:
@@ -154,6 +186,23 @@ Now we have some changes on the branch **add-name**, changes we want to our **ma
 
 Perfect! Now we have the name we added from our **add-name** branch in our **main** branch. Double check the textfile to make sure this is true.
 
+
+---
+
+Let's try this in Github Desktop. Make add-name
+
+![alt text](github_desktop_add_name_create.png)
+
+![alt text](github_desktop_add_name_confirm.png)
+
+![alt text](github_desktop_add_name_vscodium.png)
+
+![alt text](github_desktop_choose_branch_merge.png)
+
+![alt text](github_desktop_merge_into_main.png)
+
+![alt text](successful_merge.png)
+
 #### 4.2.5 Rebase
 An alternative to merging for changes in a different branch, is to rebase them. While merging shows two different histories merging together, rebasing is closer to putting the commits of another branch, on top of your branch of choice. It can be a powerful tool if you don't enjoy the messiness of many merges, though I recommend using merge in general for this course if you are uncomfortable with rebasing.
 
@@ -170,7 +219,19 @@ Here's an example you can do to try it out:
 	- We have all the features from add-name
 	- You can get more specific and use `git rebase add-name main` but there is no difference compared to if you're on **main** using `git rebase add-name`. 
 
-#### 4.2.6 Some Tips & Tricks
+---
+
+When using Github Desktop, you'll have to go under one of the top-most options (same row as `file` and `edit`) and look for `branch`. Click it, and choose the `Rebase current branch option`. If you are on the **main** branch, the next section ought to look like this:
+
+![alt text](github_desktop_rebase.png)
+
+There are options: (EXPLAIN)
+
+![alt text](github_desktop_rebase_options.png)
+
+DO NOT CHANGE SAME FILE
+
+#### 4.2.6 Some Tips & Tricks (Git specific)
 Git has a lot of different commands that are helpful in a variety of situations. I am not going to list them all here, nor their full use, but here are some useful things you may find a use for which you can search for later. 
 
 - `git commit --amend`
@@ -200,7 +261,7 @@ Git has a lot of different commands that are helpful in a variety of situations.
 ---
 
 ### 4.2 Github
-We will now begin sharing our work by reviewing the methods of storing our git repository in the cloud via Github. Sending code back and forth via emails, text messages or through a phone call are all quite inefficient. Sharing our code by means of Github though allows us to collaborate wherever we are without major issues.
+We will now begin sharing our work by reviewing the methods of storing our git repository in the cloud via Github. Sending code back and forth via emails, text messages or through a phone call are all quite inefficient. Sharing our code by means of Github though allows us to collaborate wherever we are without major issues. The majority of this part will be the same for git and Github.
 
 #### 4.2.1 Making a repository
 This is the dashboard view of Github, which is most likely the first thing you will encounter once you log in.
@@ -277,6 +338,19 @@ To go back to the repository overview, simply click the `< > Code` button to the
 
 !!! Note
 	If you make a new branch and push, you will most likely have to perform the following command: `git push -u origin <branch-name>`. This simply informs git *where* on the remote machine you are trying to push the changes (since the remote machine might not have that branch made yet).
+
+
+---
+
+Github Desktop
+
+![alt text](github_desktop_github_potential_funicular.png)
+
+![alt text](github_desktop_add_repo.png)
+
+![alt text](github_desktop_clone.png)
+
+
 #### 4.2.3 Pull
 This will be more important as you start collaborating, but we will simulate that something has happened on your repository (e.g. someone added a file). For your project locally to be up-to-date, you will need to **pull** those changes.
 
@@ -294,6 +368,13 @@ Finally, go back to your repository. Run the command `git pull` and you should h
 
 !!! Note
 	`git pull` is technically a combination of two commands: `git fetch` (which fetches changes from the remote repository) and `git merge` (usually) which merges the new changes with what existed in your repository previously.  	
+
+
+---
+
+![alt text](github_desktop_fetch_pull.png)
+
+
 #### 4.2.4 Conflicts :(
 Eventually, you will run into git conflicts. You and your friend both changed the same line in a file, so git does not know which to use. You will need to resolve the conflict before git moves on, which can feel daunting if you've never dealt with it before.
 
@@ -314,6 +395,8 @@ Now click the pen icon (roughly top right, underneath *History*) to enter edit m
 Let's now go back to our local machine (still on `local-branch`) and add a second line to `helloWorld.js` (in this example, simply the text `Another line!` was added. Stage the change (`git add *`), commit (`git commit -m "Add: Random line"`) and push (`git push`).
 
 Let's head back to our overview (click the `< > Code` button in the *almost* top left). You'll see that a branch had changes at the top of the page underneath the repository name:
+
+![alt text](github_desktop_new_changes.png)
 
 ![](img/chapter-4/recent_pushes_github.png)
 
