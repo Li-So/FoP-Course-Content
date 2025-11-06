@@ -47,11 +47,11 @@ Choose one that is appropriate for your computer (the largest download buttons s
 
 Once you've downloaded it and traversed through the guides, you need somewhere to put your code. Create a folder somewhere on your computer (e.g. inside of Documents) and name it something appropriate (**not** "New Folder"):
 
-![](img/empty_new_folder.png)
+![](img/chapter-1/empty_new_folder.png)
 
 Enter it via VSCode (menu should be in the top left):
 
-![](img/vscode_open_folder.png)
+![](img/chapter-1/vscode_open_folder.png)
 
 Now you have somewhere to put all your code and your projects. My suggestion for most assignments is to divide assignments into either separate files or entirely separate folders. This will make it easier for you to find them later.
 
@@ -84,7 +84,7 @@ NodeJS is a JavaScript runtime environment that will let us run JavaScript insid
 You'll find the download link here for most platforms: [Download NodeJS](https://nodejs.org/en/download)
 
 I suggest going for the prebuilt Node.js packages found a little further down the page, here:
-![](img/download_nodejs.png)
+![](img/chapter-1/download_nodejs.png)
 
 -   Windows
     -   I suggest getting the prebuilt Node.js package with system architecture fitting your computer's specifications.
@@ -133,7 +133,7 @@ While browser-based code editors like these are easy to get started in, they are
 
 There are some extensions in VSCode we will require to make everything work. These are found under the extensions tab to the left in VSCode (assuming standard settings):
 
-![](img/extensions_list.png)
+![](img/chapter-1/extensions_list.png)
 
 You simply search for extensions and install them! They may include anything including e.g. highlighters, themes (such as _Catppuccin_ in my case), framework support etc. I recommend installing ones with a certain amount of installs / stars though, as there may be suspicious code in some of them.
 
@@ -143,10 +143,10 @@ Search up **prettier** on VSCode extensions and install.
 
 Prettier is a code formatter we will use for a consistent code style. Once you've searched for it and installed it (should be first in the list, about 60.000.000 installs):
 
-![](img/prettier_extension.png)
+![](img/chapter-1/prettier_extension.png)
 
 Now that it is installed, go to your settings (bottom right):
-![](img/finding_vscode_settings.png)
+![](img/chapter-1/finding_vscode_settings.png)
 
 Search for _formatter_ in the settings search bar and change the default formatter to Prettier. Make sure to also enable _Format on Save_.
 
@@ -154,11 +154,11 @@ Search for _formatter_ in the settings search bar and change the default formatt
 
 In order to write p5js code in our own editor, we'll be using an extension created by the previous teacher of the course, Garrit. Search up **p5js garrit** on VSCode extensions and install the one highlighted below:
 
-![](img/p5js_extension.png)
+![](img/chapter-1/p5js_extension.png)
 
 Open / create any JavaScript file using VSCode. You should note a small button/icon close to the bottom left corner:
 
-![](img/p5js_canvas_button.png)
+![](img/chapter-1/p5js_canvas_button.png)
 
 If you press it, a canvas should appear in a separate window. It will automatically run your code without the use of NodeJS or the next extension *runner* (see below). This is in large part due to p5js re-running code constantly, but this extension will be the default tool for your p5js assignments.
 
@@ -166,7 +166,7 @@ If you press it, a canvas should appear in a separate window. It will automatica
 
 A small extension purely for our own quality of life. Search for **runner jun han** on VSCode extensions and install install what should be the top one:
 
-![](img/code_runner_extension.png)
+![](img/chapter-1/code_runner_extension.png)
 
 Once installed, you should note a small "play" button near the top right corner of VSCode. Pressing the button while inside of a JavaScript file will use our previously installed NodeJS to execute the code in a nice and easy way. Wonderful for learning basic programming logic or just testing a code snippet without using the browser.
 
@@ -180,7 +180,7 @@ Not all tasks in this worksheet will be problem solving tasks. Some will include
 
 Let's create a simple beginner script to print "Hello World" for us to see if the development environment works. Open up *VSCode* and choose a folder (directory) to work in. In this new folder, create a new file called `helloWorld.js` (you can make one via the _new file_ button to the left).
 
-![](img/vscode_new_file.png)
+![](img/chapter-1/vscode_new_file.png)
 
 Write the following lines in your editor and run the code via the play button we have via the *runner* extension:
 
