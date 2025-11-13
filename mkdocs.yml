@@ -6,6 +6,7 @@ nav:
           - Chapter 2 - Variables & Functions: chapter-2-variables-functions.md
           - Chapter 3 - Conditionals: chapter-3-conditionals.md
           - Chapter 4 - Git & Github: chapter-4-git-github.md
+          - Chapter 5 - Loops: chapter-5-loops.md
 
 theme:
     name: material
