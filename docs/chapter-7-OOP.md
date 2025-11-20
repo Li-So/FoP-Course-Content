@@ -270,6 +270,42 @@ Some examples include:
 	- `.push()`
 	- `.pop()`
 
+## 6.3.1 The return of the for loop
+Objects can of course also be looped, but it requires use of the `for ... in` loop:
+
+```js
+const dog = {
+    name: "Khloe",
+    age: 3,
+    bark: function(){
+        console.log("Bark!");
+    }
+}
+
+for (let property in dog) {
+    console.log(`${property} : ${dog[property]}`);
+}
+```
+
+This is another good example of why bracket notation is sometimes the more appropriate choice. However, you may note that when using nested objects, this will not print anything inside of those objects:
+
+```js
+const person = {
+    name: {
+        first: "Linus",
+        last: "Sonnerhed",
+    },
+    introduceSelf() {
+        console.log(`Hello, my name is ${this.name}.`);
+    },
+};
+
+for (let property in person) {
+    console.log(`${property} : ${person[property]}`);
+}
+```
+
+In the example above, the name property only prints `[object Object]`. You would need to loop through the sub-object as well to properly print the values.
 
 ## 6.4 Object-Oriented Programming
 Object-Oriented Programming (OOP) is an approach to programming using objects. It aims to create a system as a collection of objects where each object is some part of that system, with methods and properties just like in our simple objects. Usually in OOP, objects also have a public part (accessible to other pieces of code) and a private part (only accessible by the object itself).
@@ -495,4 +531,40 @@ Attempting to access the private variable via `.year` will now give us an error.
 ### 6.4.5 Data abstraction
 Keep in mind, should we have a complicated class with intricate methods and myriads of properties, there is no need to show all of this to a user of our class. Exposing only the functionality needed by the user without making it too complex in an easy interface is known as **data abstraction** and is also a frequently used pattern in OOP.
 
-## Tasks (OOP)
+## 6.5 Tasks (OOP)
+
+### 6.5.1 Create a car object
+Create a car object literal with properties:
+
+- wheels: some number of wheels
+- color: some color in string format
+- owner: an array with two strings, the first and last name (e.g. `["Jerry", "Tom"]`).
+
+It should also have methods:
+
+- `drive(){ console.log("Vroom")}`
+- `honk(){ console.log("HONK") }`
+
+Try to use `console.log()` to list the properties and to call both methods.
+
+### 6.5.2 Expanding the car object
+Change the owner property of the car object to a be an object instead of an array. Appropriately name some datanames for the first and last names. In addition, add the dataname `hasDriversLicense` in the new owner object and make it a boolean.
+
+Add a new object method `ownerCanDrive(){}` which returns the value of `hasDriversLicense`. Use the `this` keyword!
+
+### 6.5.3 Making a car factory
+Make a constructor for the car object literal we've made so far. Set the following properties and methods:
+
+- Properties
+	- wheels: 4
+	- color: "gray"
+	- owner.first: "none"
+	- owner.last: "none"
+	- owner.hasDriversLicense: false
+- Methods
+	- drive: the same as previously
+	- honk: the same as previously
+
+Once done, try calling any of the methods or using `console.log()` on any of the properties on a newly created car object.
+
+## More tasks coming!
