@@ -8,6 +8,7 @@ nav:
           - Chapter 4 - Git & Github: chapter-4-git-github.md
           - Chapter 5 - Loops: chapter-5-loops.md
           - Chapter 6 - Arrays: chapter-6-arrays.md
+          - Chapter 7 - Object-Oriented Programming: chapter-7-OOP.md
 
 theme:
     name: material
