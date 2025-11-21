@@ -154,7 +154,7 @@ const person = {
 		last: "Sonnerhed",
 	},
 	introduceSelf(){
-		console.log(`Hello, my name is ${this.name}.`)
+		console.log(`Hello, my name is ${this.name.first}.`)
 	}
 }
 ```
@@ -296,7 +296,7 @@ const person = {
         last: "Sonnerhed",
     },
     introduceSelf() {
-        console.log(`Hello, my name is ${this.name}.`);
+        console.log(`Hello, my name is ${this.name.first}.`);
     },
 };
 
@@ -429,7 +429,7 @@ class Person {
 }
 ```
 
-Now we can inherit from the Person class to the Professor and Student classes. Please note that the class that inherits from another is referred to as a **subclass** while a class others inherit from is known as the superclass (or the base class).
+Now we can inherit from the Person class to the Professor and Student classes. Please note that the class that inherits from another is referred to as a **subclass** while a class others inherit from is known as the **superclass** (or the base class).
 
 ```js
 class Professor extends Person {
@@ -520,7 +520,11 @@ class Student extends Person {
 
 	constructor(name, year){
 		super(name);
-		this.year = year;
+		this.#year = year;
+	}
+
+		canStudyArchery(){
+		return this.#year > 1;
 	}
 }
 ```
@@ -567,4 +571,4 @@ Make a constructor for the car object literal we've made so far. Set the followi
 
 Once done, try calling any of the methods or using `console.log()` on any of the properties on a newly created car object.
 
-## More tasks coming!
+### 6.5.4 Making the car class
