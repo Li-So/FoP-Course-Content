@@ -1,0 +1,1587 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter-5-loops/">
+      
+      
+        <link rel="next" href="../chapter-7-OOP/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Chapter 6 - Arrays - Foundations of Programming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+    
+      <link rel="stylesheet" href="../css/style.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#61-indexing-and-length" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Foundations of Programming Docs" class="md-header__button md-logo" aria-label="Foundations of Programming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Foundations of Programming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 6 - Arrays
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../chapter-1-setup/" class="md-tabs__link">
+          
+  
+  
+  Chapters
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Foundations of Programming Docs" class="md-nav__button md-logo" aria-label="Foundations of Programming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Foundations of Programming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-1-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 - Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-2-variables-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 - Variables & Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-3-conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 - Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-4-git-github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4 - Git & Github
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-5-loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5 - Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6 - Arrays
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6 - Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-indexing-and-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Indexing and length
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Indexing and length">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-accessing-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.1 Accessing values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-modifying-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.2 Modifying values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-array-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Array Manipulation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 Array Manipulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-adding-to-the-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.1 Adding to the array
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622-removing-from-the-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.2 Removing from the array
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-splicing-an-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Splicing an array
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#631-element-removal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.1 Element removal:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632-element-addition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.2 Element addition:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-combining-both" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.3 Combining both
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-tasks-array-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Tasks (array manipulation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.4 Tasks (array manipulation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#641-create-an-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.1 Create an array
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#642-accessing-the-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.2 Accessing the array
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#643-adding-removing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.3 Adding &amp; Removing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#644-re-implement-push-pop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.4 Re-implement push &amp; pop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-creating-copies-spread-from-slice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Creating copies (spread, from, slice)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-looping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 Looping
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.6 Looping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#661-for-of" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6.1 For ... of
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-strings-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 Strings &amp; arrays
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-multidimensional-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8 Multidimensional arrays
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69-tasks-arrays-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9 Tasks (arrays &amp; strings)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.9 Tasks (arrays &amp; strings)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#691-accessing-a-2d-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9.1 Accessing a 2D array
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#692-finding-the-largest-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9.2 Finding the largest number
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#693-email-validity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9.3 Email validity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-7-OOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7 - Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href=".." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../chapter-1-setup/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Chapter 6 - Arrays</h1>
+
+<p>The <em>array</em> object enables storing a collection of multiple items under a single variable name. For instance, let's say we want to save all the names of the TA's 2025. It wouldn't make much sense to create a new variable for all of them, so we collect them in an array:</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">teachingAssistants</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Bianca&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Evellin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Oskar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Liudmyla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Hannah&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Ronja&quot;</span><span class="p">];</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">teachingAssistants</span><span class="p">);</span>
+</span></code></pre></div></td></tr></table></div>
+<p>We deal with array objects much in the same way we deal with any other type of value. The difference, is that we can access each individual value stored inside of the array, giving us the ability to loop through it and do the same thing to every value. We could loop through all the items on an invoice to list them, check for the highest number in a sequence, etc.</p>
+<p>The example we used previously contained only strings, but arrays <em>can contain a mixture of values</em>...
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">numberSequence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">];</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">chaosArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">2222</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;wait a minute&quot;</span><span class="p">],</span><span class="w"> </span><span class="kc">true</span><span class="p">];</span>
+</span></code></pre></div></td></tr></table></div>
+...including other arrays! We will address that in more detail later.</p>
+<p>To declare an <strong>empty</strong> array (in case we want to fill it later), we write the following:
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">numberSequence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+</span></code></pre></div></td></tr></table></div></p>
+<h3 id="61-indexing-and-length">6.1 Indexing and length</h3>
+<p>While using <code>console.log()</code> will print the contents of the array, if we want to use any of those values we will want to access them. To do that, we need to know a few things. </p>
+<ol>
+<li>Arrays are <em>indexed</em> collections, which means items are numbered. <strong>However</strong>, they <em>start from zero</em>. <ul>
+<li>This means the first item has index 0, the second has index 1 etc. </li>
+<li>So, if we for instance want the <em>third</em> value of some array, we would use <em>index 2</em>.</li>
+</ul>
+</li>
+<li>Because they are indexed, we cannot go beyond the length of the array. If the array has a length of 5 (contains 5 values), we cannot access indexes beyond 4, nor indexes before 0, because they do not exist.</li>
+</ol>
+<p>Let's first find out how long an array is using the <code>length</code> property:</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">fruits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Apple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Oranges&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Mango&quot;</span><span class="p">];</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 3</span>
+</span></code></pre></div></td></tr></table></div>
+<h4 id="611-accessing-values">6.1.1 Accessing values</h4>
+<p>Now that we know how long the array is, we can attempt to access the elements inside of it using brackets and the index:</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">fruits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Apple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Oranges&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Mango&quot;</span><span class="p">];</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span><span class="w"> </span><span class="c1">// &quot;Apple&quot;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Keep in mind though, despite <code>fruits.length</code> printing a length of 3, we use indexes 0, 1 and 2. Using <code>fruits[-1]</code> or <code>fruits[3]</code> gives us <code>undefined</code>.</p>
+<h4 id="612-modifying-values">6.1.2 Modifying values</h4>
+<p>Let's assume we want to change a value in the array. To do that, give a single array item a new value:
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">fruits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Apple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Oranges&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Mango&quot;</span><span class="p">];</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="nx">fruits</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Durian&quot;</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span><span class="w"> </span><span class="c1">// &quot;Durian&quot;</span>
+</span></code></pre></div></td></tr></table></div></p>
+<p>Be careful though! You are fully able to assign an index far outside the current array length, leaving all the other unassigned indices between undefined:</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">fruits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Apple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Oranges&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Mango&quot;</span><span class="p">];</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="nx">fruits</span><span class="p">[</span><span class="mf">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Durian&quot;</span><span class="p">;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span><span class="w"> </span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1">// [ &#39;Apple&#39;, &#39;Oranges&#39;, &#39;Mango&#39;, &lt;7 empty items&gt;, &#39;Durian&#39; ]</span>
+</span></code></pre></div></td></tr></table></div>
+<p>You should also note that while unsigned integers (positive whole numbers), are supposed to be used as the indices, you can actually assign using other values in JavaScript. We'll talk about it more in Chapter 7 - Object-Oriented Programming, but for now you just need to <strong>know</strong> that this works, but ought to be avoided:
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">fruits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Apple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Oranges&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Mango&quot;</span><span class="p">];</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="nx">fruits</span><span class="p">[</span><span class="s2">&quot;froot&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Durian&quot;</span><span class="p">;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">[</span><span class="s2">&quot;froot&quot;</span><span class="p">]);</span><span class="w"> </span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="c1">// &quot;Durian&quot;</span>
+</span></code></pre></div></td></tr></table></div></p>
+<h3 id="62-array-manipulation">6.2 Array Manipulation</h3>
+<h4 id="621-adding-to-the-array">6.2.1 Adding to the array</h4>
+<p>If you want to add an item or multiple items to the end of the array, you can use <code>push()</code>. The push needs to contain the items you want to add into the array. E.g:</p>
+<p><div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nx">cities</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;Madrid&quot;</span><span class="p">);</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">);</span><span class="w"> </span><span class="c1">// [&quot;Seoul&quot;, &quot;Stockholm&quot;, &quot;Singapore&quot;, &quot;Madrid&quot;];</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="nx">cities</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;Algiers&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Brasília&quot;</span><span class="p">);</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">);</span><span class="w"> </span><span class="c1">// [&quot;Seoul&quot;, &quot;Stockholm&quot;, &quot;Singapore&quot;, &quot;Madrid&quot;, &quot;Algiers&quot;, &quot;Brasília&quot;];</span>
+</span></code></pre></div></td></tr></table></div>
+Using <code>push()</code> also returns the new length once the method call is completed, which means you could store it immediately instead of calling using the <code>length</code> property right afterwards:</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">newLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;Madrid&quot;</span><span class="p">);</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newLength</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong><code>push()</code> is not the same in p5js. The push method found in p5js to localize drawings and their styles does not exist in regular JavaScript.</strong> </p>
+</div>
+<p>If you instead want to add to the start of the array, use <code>unshift()</code>:
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nx">cities</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="s2">&quot;Madrid&quot;</span><span class="p">);</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="nx">cosole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+Unshift also returns the length of the new array, similar to <code>push()</code>.</p>
+<h4 id="622-removing-from-the-array">6.2.2 Removing from the array</h4>
+<p>To remove the last item from the array, you can use <code>pop()</code>:
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">removedItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removedItem</span><span class="p">);</span><span class="w"> </span><span class="c1">// Singapore</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 2</span>
+</span></code></pre></div></td></tr></table></div>
+Since pop removes the last item, no parameters are required. Using pop does not return the new array length, but instead the item that was removed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong><code>pop()</code> is not the same in p5js. The push method found in p5js to localize drawings and their styles does not exist in regular JavaScript.</strong></p>
+</div>
+<p>If you instead want to remove the first item from an array, you can use <code>shift()</code>:
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">removedItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removedItem</span><span class="p">);</span><span class="w"> </span><span class="c1">// Manilla</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 2</span>
+</span></code></pre></div></td></tr></table></div></p>
+<h4 id="63-splicing-an-array">6.3 Splicing an array</h4>
+<p>We can perform even more complex array manipulation via the <code>splice()</code> method. Via different parameters, we can remove, replace or add elements in select places (such as the middle). This chapter can be considered part of array manipulation, but more complex (therefore requiring more subchapters).</p>
+<p>Splice takes three arguments:</p>
+<ul>
+<li>The starting index (where you want to perform your operation).<ul>
+<li><strong>Note:</strong> This <em>CAN</em> be negative, and will in such cases go backwards (-1 is the last element in the array).</li>
+</ul>
+</li>
+<li>How many items you want to delete (starting from your starting index)<ul>
+<li>If you omit this parameter, it will delete all elements from your starting index to the end of the array.</li>
+</ul>
+</li>
+<li>What elements to add to the array.</li>
+</ul>
+<h4 id="631-element-removal">6.3.1 Element removal:</h4>
+<p>To remove an element using <code>splice()</code>, we specify a starting index and how many to remove. For instance, we may remove only 1 element at index 1:
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">removedItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">1</span><span class="p">);</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removedItem</span><span class="p">);</span><span class="w"> </span><span class="c1">// Stockholm</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 2</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">);</span>
+</span></code></pre></div></td></tr></table></div>
+ What happened?</p>
+<ul>
+<li>The first 1 in <code>splice(1,1)</code> means we target index 1 (<code>cities[1]</code> which is Stockholm)</li>
+<li>The second 1 in <code>splice(1,1)</code> means we want to remove 1 item.</li>
+<li>Similar to using <code>pop()</code>, the <code>splice()</code> method returns the removed item or items in a separate array.</li>
+</ul>
+<p>Assuming we want to remove multiple elements, such as 2 of them:
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">removedItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">);</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removedItems</span><span class="p">);</span><span class="w"> </span><span class="c1">// [&quot;Stockholm&quot;, &quot;Singapore&quot;]</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 1</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">);</span>
+</span></code></pre></div></td></tr></table></div></p>
+<ul>
+<li>We've now removed two elements from the array, starting from index 1.</li>
+<li>Both of the removed elements are returned as their own array.</li>
+</ul>
+<p>Let's say we want to remove all elements starting from a certain index in the array. In that case, we don't need to compute how many elements there may be, we simply provide the starting index and the rest are removed:</p>
+<p><div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span>
+<span class="normal"><a href="#__codelineno-15-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">numericalSequence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">];</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">removedItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">numericalSequence</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">5</span><span class="p">);</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removedItems</span><span class="p">);</span><span class="w"> </span><span class="c1">// [6, 7, 8, 9, 10]</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numericalSequence</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 5</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numericalSequence</span><span class="p">);</span><span class="w"> </span><span class="c1">// [1, 2, 3, 4, 5]</span>
+</span></code></pre></div></td></tr></table></div>
+<em>Note that 6 is removed, since indexes are counted from 0. It is actually on index 5.</em></p>
+<h4 id="632-element-addition">6.3.2 Element addition:</h4>
+<p>If we only want to add elements using <code>splice()</code>, all we have to do is to target a starting index, use 0 as the amount of elements we want to remove and specify what we want to add. Let's try to add one element using <code>splice()</code>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span>
+<span class="normal"><a href="#__codelineno-16-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">removedItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Seoul&quot;</span><span class="p">);</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removedItem</span><span class="p">);</span><span class="w"> </span><span class="c1">// []</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">);</span><span class="w"> </span><span class="c1">// [ &#39;Manilla&#39;, &#39;Seoul&#39;, &#39;Stockholm&#39;, &#39;Singapore&#39; ]</span>
+</span></code></pre></div></td></tr></table></div>
+In this case, we target index 1 (<code>cities[1]</code> which has the value Stockholm), we choose to remove 0 items (since we only want to add) and we specify we want to add the value "Seoul" to index 1. 
+What happens now?</p>
+<ul>
+<li>The first 1 in <code>splice(1, 0, "Seoul")</code> means we target index 1 (<code>cities[1]</code> which is Stockholm)</li>
+<li>The 0 in <code>splice(1,0)</code> means we want to remove 0 items.</li>
+<li>The string <em>Seoul</em> is what we'll be adding to index 1.</li>
+<li>Items already in the array are moved "one step to the right" (they now have a +1 higher index), which means <em>Seoul</em> can be placed at index 1 without removing anything.</li>
+<li>The returned <code>removedItem</code> is an empty array, since we didn't remove anything.</li>
+</ul>
+<p>If we want to add multiple elements, we can add more arguments:</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span>
+<span class="normal"><a href="#__codelineno-17-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">removedItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Seoul&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Madrid&quot;</span><span class="p">);</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removedItems</span><span class="p">);</span><span class="w"> </span><span class="c1">// []</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 5</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">);</span><span class="w"> </span><span class="c1">// [ &#39;Manilla&#39;, &#39;Seoul&#39;, &#39;Madrid&#39;, &#39;Stockholm&#39;, &#39;Singapore&#39; ]</span>
+</span></code></pre></div></td></tr></table></div>
+<p>While you can copy the most functionalities of <code>push()</code>, <code>pop()</code>, <code>unshift()</code> and <code>shift()</code> (just not returning length), it is more readable to use them when appropriate. </p>
+<p>Just to display the possibility, here's examples of copying each method using splice:
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span>
+<span class="normal"><a href="#__codelineno-18-5">5</a></span>
+<span class="normal"><a href="#__codelineno-18-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="c1">// Copying push()</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">removedItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Seoul&quot;</span><span class="p">);</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removedItems</span><span class="p">);</span><span class="w"> </span><span class="c1">// []</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">);</span><span class="w"> </span><span class="c1">// [ &#39;Manilla&#39;, &#39;Stockholm&#39;, &#39;Seoul&#39; ]</span>
+</span></code></pre></div></td></tr></table></div></p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span>
+<span class="normal"><a href="#__codelineno-19-5">5</a></span>
+<span class="normal"><a href="#__codelineno-19-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="c1">// Copying unshift()</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">removedItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Seoul&quot;</span><span class="p">);</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removedItems</span><span class="p">);</span><span class="w"> </span><span class="c1">// []</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">);</span><span class="w"> </span><span class="c1">// [ &#39;Seoul&#39;, &#39;Manilla&#39;, &#39;Stockholm&#39; ]</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span>
+<span class="normal"><a href="#__codelineno-20-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="c1">// Copying pop()</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">removedItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removedItems</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;Singapore&quot;</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 2</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">);</span><span class="w"> </span><span class="c1">// [ &#39;Manilla&#39;, &#39;Stockholm&#39; ]</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span>
+<span class="normal"><a href="#__codelineno-21-5">5</a></span>
+<span class="normal"><a href="#__codelineno-21-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="c1">// Copying shift()</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">removedItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removedItems</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;Manilla&quot;</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 2</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">);</span><span class="w"> </span><span class="c1">// [ &#39;Stockholm&#39;, &#39;Singapore&#39; ]</span>
+</span></code></pre></div></td></tr></table></div>
+<h4 id="633-combining-both">6.3.3 Combining both</h4>
+<p>In some cases, you want to replace elements and add new ones, which is easily achieved by combining what we've learned so far:
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span>
+<span class="normal"><a href="#__codelineno-22-4">4</a></span>
+<span class="normal"><a href="#__codelineno-22-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">removedItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Seoul&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Madrid&quot;</span><span class="p">);</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removedItems</span><span class="p">);</span><span class="w"> </span><span class="c1">// [&#39;Stockholm&#39;, &#39;Singapore&#39;]</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 3</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">);</span><span class="w"> </span><span class="c1">// [ &#39;Manilla&#39;, &#39;Seoul&#39;, &#39;Madrid&#39; ]</span>
+</span></code></pre></div></td></tr></table></div>
+Keep in mind, using <code>splice()</code> removes items before it adds them.</p>
+<p>Another example using a negative starting index:
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span>
+<span class="normal"><a href="#__codelineno-23-3">3</a></span>
+<span class="normal"><a href="#__codelineno-23-4">4</a></span>
+<span class="normal"><a href="#__codelineno-23-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">removedItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="o">-</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Seoul&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Madrid&quot;</span><span class="p">);</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removedItems</span><span class="p">);</span><span class="w"> </span><span class="c1">// [&#39;Stockholm&#39;, &#39;Singapore&#39;]</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// 3</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">);</span><span class="w"> </span><span class="c1">// [ &#39;Manilla&#39;, &#39;Seoul&#39;, &#39;Madrid&#39; ]</span>
+</span></code></pre></div></td></tr></table></div></p>
+<h3 id="64-tasks-array-manipulation">6.4 Tasks (array manipulation)</h3>
+<p>Since there are more things to cover when using arrays, we'll take a brief intermission to get more comfortable with various methods of array manipulation.</p>
+<h4 id="641-create-an-array">6.4.1 Create an array</h4>
+<p>Create an array <code>noodleFlavours</code> and populate it with the following values:
+<code>"chicken", "beef", "pork", "chili", "vegetables"</code>. Also create an array <code>sequenceNumbers</code> populated with numbers 1 through 10.</p>
+<p>We'll be using these arrays to experiment in the later tasks.</p>
+<h4 id="642-accessing-the-array">6.4.2 Accessing the array</h4>
+<p>Try different indexes in the array to see what you can access. For instance:
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
+<span class="normal"><a href="#__codelineno-24-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">flavour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">noodleFlavours</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">flavour</span><span class="p">)</span><span class="w"> </span><span class="c1">// beef</span>
+</span></code></pre></div></td></tr></table></div></p>
+<h4 id="643-adding-removing">6.4.3 Adding &amp; Removing</h4>
+<ul>
+<li>Try adding values <code>"super chili"</code> and <code>"jajangmyeon"</code> to the <code>noodleFlavours</code> array, adding them to the beginning and the end of the array, respectively. <ul>
+<li>It should look like: <code>["super chili", "chicken", "beef", "pork", "chili", "vegetables", "jajangmyeon"]</code></li>
+</ul>
+</li>
+<li>Try adding values <code>5.25</code> and <code>5.75</code> between numbers 5 and 6 in the <code>sequenceNumbers</code> array.<ul>
+<li>It should look like: <code>[1, 2, 3, 4, 5, 5.25, 5.75, 6, 7, 8, 9, 10]</code></li>
+</ul>
+</li>
+<li>Now we'll try to remove the third, fifth and sixth values of <code>noodleFlavours</code>, as well as the first and last values of the <code>sequenceNumbers</code> array.<ul>
+<li>It should look like: <code>["super chili", "chicken", "pork", "jajangmyeon"]</code></li>
+</ul>
+</li>
+<li>AND<ul>
+<li><code>[2, 3, 4, 5, 5.25, 5.75, 6, 7, 8, 9]</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="644-re-implement-push-pop">6.4.4 Re-implement push &amp; pop</h4>
+<p>Since <code>splice</code> can be used to add and remove anywhere we want to, you should try to use splice to replicate using push, pop, unshift &amp; shift methods.</p>
+<h3 id="65-creating-copies-spread-from-slice">6.5 Creating copies (spread, from, slice)</h3>
+<p>Assuming you want to create a copy of an array in JavaScript, there are a number of different methods you can employ. For instance, using direct assignment, using the <em>spread</em> and using <code>slice()</code>.</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-25-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-25-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-25-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-25-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-25-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-25-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-25-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-25-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-25-10">10</a></span>
+<span class="normal"><a href="#__codelineno-25-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2"></a>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">citiesCopy1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">;</span><span class="w"> </span><span class="c1">// Direct assignment</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">citiesCopy2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[...</span><span class="nx">cities</span><span class="p">];</span><span class="w"> </span><span class="c1">// Some array with values</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">citiesCopy3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">slice</span><span class="p">();</span><span class="w"> </span><span class="c1">// Using slice</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6"></a>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7"></a>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">);</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">citiesCopy1</span><span class="p">);</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">citiesCopy2</span><span class="p">);</span>
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">citiesCopy3</span><span class="p">);</span>
+</span></code></pre></div></td></tr></table></div>
+<p>It is noteworthy that most built-in options in JavaScript only create a <em>shallow copy</em> of a given array. Defined by MDN:</p>
+<blockquote>
+<p>A <strong>shallow copy</strong> of an object is a copy whose properties share the same <a href="https:// developer.mozilla.org/en-US/docs/Glossary/Object_reference">references</a> (point to the same underlying values) as those of the source object from which the copy was made. As a result, when you change either the source or the copy, you may also cause the other object to change too. That behavior contrasts with the behavior of a <a href="https:// developer.mozilla.org/en-US/docs/Glossary/Deep_copy">deep copy</a>, in which the source and copy are completely independent.</p>
+</blockquote>
+<p>Let's walk through an example.
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-26-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-26-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-26-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-26-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-26-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-26-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-26-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-26-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-26-10">10</a></span>
+<span class="normal"><a href="#__codelineno-26-11">11</a></span>
+<span class="normal"><a href="#__codelineno-26-12">12</a></span>
+<span class="normal"><a href="#__codelineno-26-13">13</a></span>
+<span class="normal"><a href="#__codelineno-26-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">citiesCopy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cities</span><span class="p">;</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3"></a>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="nx">citiesCopy</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;London&quot;</span><span class="p">;</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">citiesCopy</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span><span class="w"> </span><span class="c1">// London</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span><span class="w"> </span><span class="c1">// London</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7"></a>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8"></a><span class="nx">citiesCopy</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;Tokyo&quot;</span><span class="p">);</span>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">citiesCopy</span><span class="p">[</span><span class="mf">3</span><span class="p">]);</span><span class="w"> </span><span class="c1">// Tokyo</span>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">[</span><span class="mf">3</span><span class="p">]);</span><span class="w"> </span><span class="c1">// Tokyo</span>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11"></a>
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12"></a><span class="nx">citiesCopy</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Brasília&quot;</span><span class="p">);</span>
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">citiesCopy</span><span class="p">[</span><span class="mf">1</span><span class="p">]);</span><span class="w"> </span><span class="c1">// Brasília</span>
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">[</span><span class="mf">1</span><span class="p">]);</span><span class="w"> </span><span class="c1">// Brasília</span>
+</span></code></pre></div></td></tr></table></div></p>
+<ul>
+<li>We have an array cities that we want to copy and change.</li>
+<li>We change the first value in <code>citiesCopy</code> at index 0...</li>
+<li>...but <code>cities[0]</code> changed too!</li>
+<li>Despite trying to use<ul>
+<li>assignment</li>
+<li>push</li>
+<li>splice</li>
+</ul>
+</li>
+</ul>
+<p>To avoid this and ensure completely separate copies, we would need to create a <em>deep copy</em>. There are no built-in ways to create them in JavaScript, but it is possible via a workaround (we'll talk about it later though).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The slice method and the spread operator will create a "one level" deep copy, meaning it works for things that are not multi-dimensional.</p>
+</div>
+<h3 id="66-looping">6.6 Looping</h3>
+<p>Arrays are most likely what you will find most use for looping over, using the index across iterations. This is the simplest example, using a while-loop:</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
+<span class="normal"><a href="#__codelineno-27-2">2</a></span>
+<span class="normal"><a href="#__codelineno-27-3">3</a></span>
+<span class="normal"><a href="#__codelineno-27-4">4</a></span>
+<span class="normal"><a href="#__codelineno-27-5">5</a></span>
+<span class="normal"><a href="#__codelineno-27-6">6</a></span>
+<span class="normal"><a href="#__codelineno-27-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3"></a>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="k">while</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">){</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="w">    </span><span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>The condition and iterations should reasonably ensure that the index does not attempt to access a value outside of the array's length (e.g -1 or in this example, 3). Also make a note of ensuring no infinite loops!</p>
+<p>Here's also an example using the for-loop:
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
+<span class="normal"><a href="#__codelineno-28-2">2</a></span>
+<span class="normal"><a href="#__codelineno-28-3">3</a></span>
+<span class="normal"><a href="#__codelineno-28-4">4</a></span>
+<span class="normal"><a href="#__codelineno-28-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2"></a>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="k">for</span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div></p>
+<h4 id="661-for-of">6.6.1 For ... of</h4>
+<p>For some, a more convenient and readable route is using <code>for ... of</code>. In cases where indices are not required, we could instead loop over the same <code>cities</code> array like this:
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
+<span class="normal"><a href="#__codelineno-29-2">2</a></span>
+<span class="normal"><a href="#__codelineno-29-3">3</a></span>
+<span class="normal"><a href="#__codelineno-29-4">4</a></span>
+<span class="normal"><a href="#__codelineno-29-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Manilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Stockholm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">];</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2"></a>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">city</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">cities</span><span class="p">){</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">city</span><span class="p">);</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div></p>
+<h3 id="67-strings-arrays">6.7 Strings &amp; arrays</h3>
+<p>Now that we're comfortable enough with both arrays and looping, it is worth noting that strings can be handled similarly to arrays. Using an index in a string will return the character in that position:</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span>
+<span class="normal"><a href="#__codelineno-30-2">2</a></span>
+<span class="normal"><a href="#__codelineno-30-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">;</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">letter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">city</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">letter</span><span class="p">);</span>
+</span></code></pre></div></td></tr></table></div>
+<p>The character value stored at that index cannot be changed as strings are immutable, but a copy with a modification can be achieved with a string method, e.g. <code>replace()</code>:</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span>
+<span class="normal"><a href="#__codelineno-31-2">2</a></span>
+<span class="normal"><a href="#__codelineno-31-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Singapore&quot;</span><span class="p">;</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">newCity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">city</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Z&quot;</span><span class="p">);</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newCity</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;Zingapore&quot;</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="68-multidimensional-arrays">6.8 Multidimensional arrays</h3>
+<p>Working with arrays can quickly become complicated to visualize as you nest arrays inside of arrays. It is still feasible to visualize with perhaps one or two nested arrays (creating 2D and 3D arrays respectively), but beyond that becomes quite difficult.</p>
+<p>Let's say we were making tic-tac-toe (aka three-in-a-row). We could create multiple arrays, for each row (or column if you prefer), but then you would need to loop across several arrays to check for a winner, which is annoying and inefficient.</p>
+<p>Instead, imagine the following; you are going to draw a 3 x 3 tic-tac-toe board. To do that, you do the following:</p>
+<ol>
+<li>You draw the first box to the top left.</li>
+<li>You then continue to draw boxes below it, making the first column.</li>
+<li>You draw a box to the right of the top box.</li>
+<li>You draw the boxes below that box.</li>
+<li>You once again, draw a box to the right of the top box.</li>
+<li>You draw boxes below that box.</li>
+</ol>
+<p>Here are some diagrams for visualization (<strong>NOT CODE, JUST PSEUDOCODE</strong>):</p>
+<ol>
+<li>
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1"></a>[]
+</span></code></pre></div></td></tr></table></div>
+</li>
+<li>
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1">1</a></span>
+<span class="normal"><a href="#__codelineno-33-2">2</a></span>
+<span class="normal"><a href="#__codelineno-33-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1"></a>[]
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2"></a>[]
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3"></a>[]
+</span></code></pre></div></td></tr></table></div>
+</li>
+<li><div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1">1</a></span>
+<span class="normal"><a href="#__codelineno-34-2">2</a></span>
+<span class="normal"><a href="#__codelineno-34-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1"></a>[] []
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2"></a>[]
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3"></a>[]
+</span></code></pre></div></td></tr></table></div></li>
+<li><div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1">1</a></span>
+<span class="normal"><a href="#__codelineno-35-2">2</a></span>
+<span class="normal"><a href="#__codelineno-35-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1"></a>[] []
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2"></a>[] []
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3"></a>[] []
+</span></code></pre></div></td></tr></table></div></li>
+<li><div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1">1</a></span>
+<span class="normal"><a href="#__codelineno-36-2">2</a></span>
+<span class="normal"><a href="#__codelineno-36-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1"></a>[] [] []
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2"></a>[] []
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3"></a>[] []
+</span></code></pre></div></td></tr></table></div></li>
+<li><div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-37-1">1</a></span>
+<span class="normal"><a href="#__codelineno-37-2">2</a></span>
+<span class="normal"><a href="#__codelineno-37-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1"></a>[] [] []
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2"></a>[] [] []
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3"></a>[] [] []
+</span></code></pre></div></td></tr></table></div></li>
+</ol>
+<p>What we have now done is effectively instructions on how to draw a 3 x 3 tic-tac-toe board. This is incidentally also how creating a 2D array roughly works. We specify how many columns we want (how many of the top-boxes will we draw?) and then we figure out how many rows we want (how many boxes do we draw below?).</p>
+<p>The value of the array is therefore another, nested, array containing 3 values for tic-tac-toe board positions. To access those values, you will need to use multiple indexes:</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-38-1">1</a></span>
+<span class="normal"><a href="#__codelineno-38-2">2</a></span>
+<span class="normal"><a href="#__codelineno-38-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">ticTacToeBoard</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">3</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mf">4</span><span class="p">,</span><span class="mf">5</span><span class="p">,</span><span class="mf">6</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mf">7</span><span class="p">,</span><span class="mf">8</span><span class="p">,</span><span class="mf">9</span><span class="p">]];</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">firstSpace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ticTacToeBoard</span><span class="p">[</span><span class="mf">0</span><span class="p">][</span><span class="mf">0</span><span class="p">];</span><span class="w"> </span><span class="c1">// 1</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3"></a><span class="kd">let</span><span class="w"> </span><span class="nx">fifthSpace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ticTacToeBoard</span><span class="p">[</span><span class="mf">1</span><span class="p">][</span><span class="mf">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// 5</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Which can be visualized as:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-39-1">1</a></span>
+<span class="normal"><a href="#__codelineno-39-2">2</a></span>
+<span class="normal"><a href="#__codelineno-39-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1"></a>[ 1 ]  [ 2 ]  [ 3 ]
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2"></a>[ 4 ]  [ 5 ]  [ 6 ]
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3"></a>[ 7 ]  [ 8 ]  [ 9 ]
+</span></code></pre></div></td></tr></table></div>
+<p>OR</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-40-1">1</a></span>
+<span class="normal"><a href="#__codelineno-40-2">2</a></span>
+<span class="normal"><a href="#__codelineno-40-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1"></a>[ 1 ]  [ 4 ]  [ 7 ]
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2"></a>[ 2 ]  [ 5 ]  [ 8 ]
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3"></a>[ 3 ]  [ 6 ]  [ 9 ]
+</span></code></pre></div></td></tr></table></div>
+<h3 id="69-tasks-arrays-strings">6.9 Tasks (arrays &amp; strings)</h3>
+<h4 id="691-accessing-a-2d-array">6.9.1 Accessing a 2D array</h4>
+<p>Create the following array <code>let ticTacToeBoard = [[1,2,3], [4,5,6], [7,8,9]];</code> and try to access the values <em>3, 7 and 9</em>. <code>console.log</code> them! </p>
+<h4 id="692-finding-the-largest-number">6.9.2 Finding the largest number</h4>
+<p>Loop over the following array <code>[1,124,321,352,3246,6,436,64,436]</code> to try to locate the largest number. </p>
+<p>Tips:</p>
+<ul>
+<li>Keep track of the largest number you've found so far with a variable.</li>
+<li>Using an if-statement, replace the number you've stored in a variable with the one you've found.</li>
+<li>Try it on different types of arrays:<ul>
+<li><code>[18,2,124,124,2531,254,63]</code></li>
+<li><code>[1248,2345,675,796,546,79]</code></li>
+<li><code>[423,5231,756,678,7809]</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="693-email-validity">6.9.3 Email validity</h4>
+<p>Let's do a very simple email validity check. If there is no <code>@</code> sign, it is probably invalid. If there are two or more, it is equally invalid. Build a function that checks an array of emails, e.g. <code>["valid@valid.com", "invalid.invalid.com", "valid@invalid@valid.com"]</code> and returns <code>false</code> if any of them are not valid. </p>
+<p>The example array given should return <code>false</code>.</p>
+<p>Tips:</p>
+<ul>
+<li>Using the string method <code>includes()</code> might be a good fit. Look it up on MDN!</li>
+<li>Use an if statement with includes to see whether something works or not.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "header.autohide", "search.suggest", "navigation.path", "navigation.top", "toc.integrate", "navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.expand"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

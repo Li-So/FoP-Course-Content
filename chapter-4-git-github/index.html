@@ -1,0 +1,1653 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter-3-conditionals/">
+      
+      
+        <link rel="next" href="../chapter-5-loops/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Chapter 4 - Git & Github - Foundations of Programming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+    
+      <link rel="stylesheet" href="../css/style.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#41-special-background-information-optional-chapter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Foundations of Programming Docs" class="md-header__button md-logo" aria-label="Foundations of Programming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Foundations of Programming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 4 - Git & Github
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../chapter-1-setup/" class="md-tabs__link">
+          
+  
+  
+  Chapters
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Foundations of Programming Docs" class="md-nav__button md-logo" aria-label="Foundations of Programming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Foundations of Programming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-1-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 - Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-2-variables-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 - Variables & Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-3-conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 - Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4 - Git & Github
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4 - Git & Github
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-special-background-information-optional-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Special Background Information (optional chapter)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Special Background Information (optional chapter)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411-moving-around-in-a-terminal-optional-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1.1 Moving around in a terminal (optional chapter)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Git
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.1 Init
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2.1 Init">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git (Terminal)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Github Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.2 Commit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2.2 Commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-terminal_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git (Terminal)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-desktop_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Github Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.3 Branch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2.3 Branch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-terminal_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git (Terminal)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-desktop_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Github Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.4 Merge
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2.4 Merge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-terminal_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git (Terminal)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-desktop_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Github Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#425-rebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.5 Rebase
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2.5 Rebase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-terminal_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git (Terminal)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-desktop_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Github Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#426-some-tips-tricks-git-specific" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.6 Some Tips &amp; Tricks (Git specific)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Github
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Github">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431-making-a-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.1 Making a repository
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3.1 Making a repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-terminal_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git (Terminal)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-desktop_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Github Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.2 Push
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3.2 Push">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-terminal_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git (Terminal)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-desktop_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Github Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433-pull" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.3 Pull
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3.3 Pull">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-terminal_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git (Terminal)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-desktop_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Github Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#434-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.4 Conflicts :(
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3.4 Conflicts :(">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-terminal_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git (Terminal)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-desktop_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Github Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-5-loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5 - Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-6-arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6 - Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-7-OOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7 - Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href=".." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../chapter-1-setup/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Chapter 4 - Git & Github</h1>
+
+<p>Git is an open-source distributed version control system created by Linus Torvalds (a Finnish person who also made Linux). Using git means you have full access to your codebase history, and all code changes are tracked, restorable and revertible. Git is frequently used in the programming industry, with some considering it a skill that is just as important as programming.</p>
+<p>Github is a cloud-based hosting system that works <strong>with</strong> Git. Essentially, your codebase is stored elsewhere. Github is a very popular tool for sharing and collaborating on code, hosting everything from personal to professional projects. The workflow you learn from here is most likely what you will use in the industry (with the possibility for some variations).</p>
+<p>This chapter will introduce what both Git and Github are in more detail, as well as some tutorials to get used to them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This chapter may become especially confusing as it is a brand new topic in the middle of learning JavaScript. The reason for this abrupt break is due to a group assignment. I <strong>strongly</strong> suggest reviewing the slides and using the <a href="https://learngitbranching.js.org/">training website</a> to see the structure visualized. The optional chapters may be <strong>very</strong> helpful to read through, though not essential.</p>
+</div>
+<h2 id="41-special-background-information-optional-chapter">4.1 Special Background Information (optional chapter)</h2>
+<p>There may be some terminology you aren't familiar with in this chapter which isn't Git specific. I will try to introduce some of the most fundamental ones here, just to make sure everyone is on the same page.</p>
+<ul>
+<li>
+<p><strong>Directory</strong></p>
+<ul>
+<li>A file system structure that contains references to other files and directories (in essence, a folder on your computer). </li>
+<li>For instance, if you were looking at what is stored on your desktop, I would find that here (Windows): <code>C:\Users\sonlin\Desktop</code><ul>
+<li>Those backslashes signify that the "folder" desktop, is actually inside another folder "sonlin", which is in another folder "Users". The C: is just what harddrive we're on, don't worry about it too much.</li>
+<li>This looks different if you're on Mac or Linux, more like this: <code>~/sonlin/Desktop$</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Short version: Terminals &amp; Shells</strong></p>
+<ul>
+<li>TV example:<ul>
+<li>Imagine yourself sitting next to a TV with Netflix.</li>
+<li>The screen you see, is roughly equivalent to the terminal.</li>
+<li>The thing actually running Netflix in the TV is the Shell.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Terminal</strong></p>
+<ul>
+<li>Originally, a terminal was a physical device used to send input and output from a computing device.</li>
+<li>Today, we usually mean <em>terminal window or terminal emulator</em>.</li>
+<li>A terminal window or terminal emulator is a text-only window that let's you interact with a <em>Command-Line Interface (CLI)</em>, which in turn allows you to interact with the "real brains", <em>the shell</em>.</li>
+<li>Example terminal emulators:<ul>
+<li>Terminal (Mac)</li>
+<li>Windows Terminal</li>
+<li>Ghostty</li>
+<li>Warp</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Console</strong><ul>
+<li>Back in the day, it was the physical device you used to interact with the computing device, e.g. a keyboard.</li>
+<li>A special type of terminal, one you may encounter when there is no desktop.<ul>
+<li>Imagine it as a "primary terminal" for that specific computer. </li>
+</ul>
+</li>
+<li>Term can also be used to designate terminal emulators.</li>
+<li>Difference is not massive to terminals.</li>
+</ul>
+</li>
+<li><strong>Shell</strong><ul>
+<li>A program that processes commands and returns output. </li>
+<li>This is the program that tries to read your commands and pass them on to the inner sanctum of the computer, <em>the kernel</em> which in turn does your bidding.</li>
+<li>Example shells:<ul>
+<li>Bash</li>
+<li>sh (older version of bash)</li>
+<li>Zsh</li>
+<li>Ksh</li>
+<li>Fsh</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Command-Line</strong><ul>
+<li>The place you type your commands into</li>
+<li>Sometimes called the Command Prompt</li>
+<li>Has different symbols, such as <code>&gt;</code> or <code>$</code></li>
+<li>Looks like e.g:<ul>
+<li><code>C:\Users\sonlin\Desktop&gt;</code></li>
+<li><code>sonlin@JTH_Computer:~$</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="411-moving-around-in-a-terminal-optional-chapter">4.1.1 Moving around in a terminal (optional chapter)</h3>
+<p>In this subchapter, we will have a brief look at how to move around in a terminal. In principle, moving around is quite simple: We only need 2 commands to go somewhere and to see where we go.</p>
+<p>When you open a terminal, it is more than likely you start here: </p>
+<p><img alt="" src="../img/chapter-4/new_empty_terminal.png" /></p>
+<p>The small <code>~</code> sign before <code>$</code> essentially shows we are in our home folder. It is normally the folder that contains your desktop folder, your documents folder, etc:</p>
+<p><img alt="" src="../img/chapter-4/file_explorer_home.png" /></p>
+<p>That's where we will try our first command. Using <code>ls</code> (short for <em>list</em>) and pressing enter to execute the command, you can see all of the folders or files in a given directory. Try it out!</p>
+<p><img alt="" src="../img/chapter-4/ls_basic.png" />
+If you also happen to have <em>hidden files or directories</em>, you can use <code>ls -a</code> to reveal them.</p>
+<p>Now that we know how to see where we are and what there is, we'll try to move around. To do this, you can use <code>cd &lt;directory-name&gt;</code> (short for <em>change directory</em>). Since I have different folders in my example, you can use <code>cd</code> into some other folder:</p>
+<p><img alt="" src="../img/chapter-4/ls_cd_basic.png" /></p>
+<p>Note how the terminal now looks different, and <code>~</code> has changed into <code>~/FoP-Course-Content$</code>. This is a useful indicator of where we have moved. You can now use <code>ls</code> again and the contents of where you are should be listed.</p>
+<p>Depending on your VSCode installation (which <em>should</em> include this feature), you can also write <code>code .</code> in the folder (directory) you want VSCode to open up in. This can save you some time instead of having to look for the project in normal folders.</p>
+<h2 id="42-git">4.2 Git</h2>
+<p>I will try to show each part using both a graphical user interface via <em>Github Desktop</em> and via <em>a terminal</em>. The terminal gives full access to all git functionality, but may feel intimidating to start with. I encourage you to try though, as understanding what happens in the terminal will give a better understanding of what actually happens in the background. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that my chosen project or directory names throughout this tutorial with git and Github Desktop need to be adapted depending on your own project or directory names.</p>
+</div>
+<h3 id="421-init">4.2.1 Init</h3>
+<h4 id="git-terminal">Git (Terminal)</h4>
+<p>In order to get started with git, you will need to create a <em>repository</em>. In essence, you are simply telling git that everything in a certain folder (or <em>directory</em> if you will), should be saved as part of a project.</p>
+<p>Let's create a fresh new repository.</p>
+<h4 id="terminal">Terminal</h4>
+<p><div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>linus@JU-5CD5196T1H:~/testGit$<span class="w"> </span>git<span class="w"> </span>init
+</span></code></pre></div></td></tr></table></div>
+Above, I created a new folder <em>testGit</em> in my <code>home</code> directory (file explorer or terminal) and ran the command <em>git init</em>. We now have a repository to work from!</p>
+<hr />
+<h4 id="github-desktop">Github Desktop</h4>
+<p>If you instead opt to actively use Github Desktop, create a <a href="https://github.com/signup?source=form-home-signup&amp;user_email=">Github Account</a>. Sign in and you should see the following:</p>
+<p><img alt="" src="../img/chapter-4/github_desktop_start.png" /></p>
+<p>Using Github desktop, we instead press <code>Create a new repository on our local drive</code> and we should see this window:</p>
+<p><img alt="" src="../img/chapter-4/github_desktop_new_repo.png" /></p>
+<p>From here you may choose:</p>
+<ul>
+<li>Repository name (your project name)</li>
+<li>Some description (for others to read and understand the project)</li>
+<li>The path (where you want to store it)</li>
+<li>gitignore (see Github subchapter)</li>
+<li>license (see Github subchapter)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Peeking ahead into the Github subchapter, you may notice several parts are very similar to creating a repository on their website.</p>
+</div>
+<p>For this example using Github Desktop, I'll use the repository name <code>fantastic-dragon</code>. We should now automatically proceed to the following screen:</p>
+<p>This is where Github Desktop shows all your options and tools for working with your repository using git. Let's walk through it:</p>
+<ul>
+<li><strong>In the top left</strong>, going from left to right you can see(<em>note, beneath file, edit, etc</em>):<ul>
+<li>The repository name - fantastic dragon.</li>
+<li>The branch you are on - main (more on branches below).</li>
+<li><strong>Publish repository</strong> - Will upload your project to Github. More on that later.</li>
+</ul>
+</li>
+<li><em>In the center</em><ul>
+<li>Currently it displays no local changes, as we've yet to do much in the repository.</li>
+<li>Open your repository in your external editor - A fast way to open up VSCode and get to work.</li>
+<li>View the files of your repository in your File Manager - A fast way to open the repository in your files.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../img/chapter-4/github_desktop_started_repo.png" /></p>
+<h3 id="422-commit">4.2.2 Commit</h3>
+<h4 id="git-terminal_1">Git (Terminal)</h4>
+<p>As a next step for doing something in the project, we'll create an easy text file in the folder. Let's make <em>helloWorld.txt</em> and write:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>Hi! My name is...
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not fill in your name just yet! We'll do that later.</p>
+</div>
+<p>If you now use the command <code>git status</code> in the terminal, you should notice it mentions untracked files. That is because we have yet to tell git that this is a file we want to track changes in. </p>
+<p>To track it, we use <code>git add helloWorld.txt</code>. Using <code>git status</code> now will display:<code>Changes to be committed:</code> and <code>helloWorld.txt</code> should be listed beneath it. So what did we actually do? </p>
+<p>Git has 3 separate stages. Changes can be <code>untracked, staged or committed.</code> New changes must be added to <strong>the staging area</strong> if you later want to commit them (sometimes you don't want to commit all you've done). </p>
+<p>For now, we've added our new file to the staging area, which is equivalent to telling git we want to commit it. </p>
+<p>If it is our very first commit, we first have to identify ourselves to git so that it knows who to attribute the commit to. We do this via the following:
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;John Doe&quot;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span>johndoe@example.com
+</span></code></pre></div></td></tr></table></div></p>
+<p>Now we are ready to commit our changes. We'll use the command <code>git commit -m "Add: helloWorld.js file"</code>. Technically just using <code>git commit</code> would achieve the same thing, though you would have to add a commit message afterwards instead of in the same command. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you accidentally miss entering the <code>-m</code> part, odds are you find yourself in a terminal program called <code>nano</code>. You can exit via <code>ctrl + X</code> (Windows/Linux) or <code>command + X</code>  (Mac)</p>
+</div>
+<p>If you now use <code>git log</code> to show the current repository's version history, you can now view your previous commit.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sometimes you will see <code>git add .</code> or <code>git add *</code>. The first means to add all changes in your current folder (for large projects, this would not add everything). The second would add <strong>ALL</strong> changes you've made inside the repository. It is a little faster.</p>
+</div>
+<hr />
+<h4 id="github-desktop_1">Github Desktop</h4>
+<p>Let's do the equivalent in Github Desktop. We'll open the repository (either on our own, via the <code>open external editor</code> button) and create a new textfile. We'll write the same text (<code>Hello! My name is...</code>) and save. </p>
+<p><img alt="" src="../img/chapter-4/github_desktop_hello_world_txt.png" /></p>
+<p>Returning to Github Desktop, we can see it displays the changes we have made since last time. To commit, we simply fill a commit message in the bottom right, a longer description if required, and press <code>commit to main</code>. The changes are now committed!</p>
+<p><img alt="" src="../img/chapter-4/github_desktop_commit.png" /></p>
+<h3 id="423-branch">4.2.3 Branch</h3>
+<h4 id="git-terminal_2">Git (Terminal)</h4>
+<p>Let's assume you have several features you want to create. In case things go a little sideways, it might be good to be working on a <em>branch</em>. Essentially, this is an offshoot from your <strong>main</strong> branch. Changes you make here will not affect the <strong>main</strong> branch, nor will changes there affect this one. </p>
+<p>Let's make a branch: <code>git branch add-name</code>. Note that we're not actually <em>on</em> that branch right now, we've just created it. To switch branch, you can use the command <code>git checkout add-name</code>. To be sure you've just switched, you can use <code>git branch --list</code> to see all the branches (the one you're on should have an asterisk next to it *).</p>
+<p>Now that you're certain you've switched branches, do you notice how nothing is different? Because we were on the <strong>main</strong> (or master) branch, <strong>add-name</strong> has all the same changes it did. Let's change that.</p>
+<p>Add your name to the text file from earlier:
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>Hi! My name is Linus!
+</span></code></pre></div></td></tr></table></div></p>
+<p>Use <code>git add helloWorld.txt</code> to add all your changes and use <code>git commit -m "Add: Added my name to helloWorld.txt"</code>.</p>
+<hr />
+<h4 id="github-desktop_2">Github Desktop</h4>
+<p>Let's try this in Github Desktop. If you click the button currently displaying <strong>main</strong> next to our repository name, you'll see a new button <code>New branch</code>. Click it!</p>
+<p><img alt="" src="../img/chapter-4/github_desktop_add_name_create.png" /></p>
+<p>The following options should show. Fill in the <strong>add-name</strong> branch name and create the branch. This branch is based on the <strong>main</strong> branch just like when only using git. We can easily switch branch by clicking the appropriate branch under the same menu we found <code>New branch</code>. Github Desktop will display which is our current branch.</p>
+<p><img alt="" src="../img/chapter-4/github_desktop_add_name_confirm.png" /></p>
+<p>Open the repository in VSCode and add your name to the text file from earlier:
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>Hi! My name is Linus!
+</span></code></pre></div></td></tr></table></div></p>
+<p>Return to Github Desktop and commit!</p>
+<p><img alt="" src="../img/chapter-4/github_desktop_add_name_vscodium.png" /></p>
+<h3 id="424-merge">4.2.4 Merge</h3>
+<h4 id="git-terminal_3">Git (Terminal)</h4>
+<p>Now we have some changes on the branch <strong>add-name</strong>, changes we want to our <strong>main</strong> branch. To do this we can use <code>git merge</code> via the following:</p>
+<ul>
+<li>Make sure you are on the <strong>main</strong> branch<ul>
+<li>You can check branch you are on via <code>git branch</code>, which will display the existing local branches as well as your current branch via an asterisk <code>*</code>.</li>
+<li>You can switch branch using <code>git checkout &lt;branch-name&gt;</code></li>
+</ul>
+</li>
+<li>Once on the <strong>main</strong> branch, write <code>git merge add-name</code>: This will merge <strong>add-name</strong> into your <strong>main</strong> branch.</li>
+</ul>
+<p>Perfect! Now we have the name we added from our <strong>add-name</strong> branch in our <strong>main</strong> branch. Double check the textfile to make sure this is true.</p>
+<hr />
+<h4 id="github-desktop_3">Github Desktop</h4>
+<p>To achieve the equivalent in Github Desktop, click the current branch to see the menu observed earlier. Note that at the very bottom of the branch menu, there is a button <code>Choose a branch to merge into main</code> (assumes you are currently on main). Once clicked and confirmed, the merge is complete!</p>
+<p><img alt="" src="../img/chapter-4/github_desktop_choose_branch_merge.png" /></p>
+<p>You will also receive a small message noting that the merge was successful.</p>
+<p><img alt="" src="../img/chapter-4/successful_merge.png" /></p>
+<h3 id="425-rebase">4.2.5 Rebase</h3>
+<h4 id="git-terminal_4">Git (Terminal)</h4>
+<p>An alternative to merging for changes in a different branch, is to rebase them. While merging shows two different histories merging together, rebasing is closer to putting the commits of another branch, on top of your branch of choice. It can be a powerful tool if you don't enjoy the messiness of many merges, though I recommend using merge in general for this course if you are uncomfortable with rebasing.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This example uses the branch <strong>main</strong> and <strong>add-name</strong>. Adapt it to your own branch names.</p>
+</div>
+<p>Here's an example you can do to try it out:</p>
+<ol>
+<li>Commit something on the <strong>main</strong> branch, e.g. the text example we did in the chapters before. To stay safe from <strong>conflicts</strong> which we will look at in the next subchapter, you can commit a file with content of your choosing.</li>
+<li>Switch branch to <strong>add-name</strong> and make a different file with content of your choosing.</li>
+<li>Now go back to the <strong>main</strong> branch and write:
+   <code>git rebase add-name</code>. What happens?<ul>
+<li>In essence, we've now rebased our <strong>main</strong> branch on top of the <strong>add-name</strong> branch</li>
+<li>We have all the features from add-name</li>
+<li>You can get more specific and use <code>git rebase add-name main</code> but there is no difference compared to if you're on <strong>main</strong> using <code>git rebase add-name</code>. </li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4 id="github-desktop_4">Github Desktop</h4>
+<p>Perform similar actions as described in the git guide above, but using Github Desktop to achieve them. To rebase (step three of the git guide above) when using Github Desktop, you'll have to go under one of the top-most options (same row as <code>file</code> and <code>edit</code>) and look for <code>branch</code>. Click it, and choose the <code>Rebase current branch option</code>. If you are on the <strong>main</strong> branch, the next section ought to look like this:</p>
+<p><img alt="" src="../img/chapter-4/github_desktop_rebase.png" /></p>
+<p>Despite choosing to rebase, there are other options shown, including merge, squash &amp; merge and rebase. While merge and rebase are both familiar, squash and merge may not be. In short, it is a method of <em>squashing</em> multiple commits into one and merging that commit. For now, choose rebase and click the button to perform the rebase.</p>
+<p><img alt="" src="../img/chapter-4/github_desktop_rebase_options.png" /></p>
+<p>The rebase should now be complete and there should be a success message similar to the one we received when merging!</p>
+<h3 id="426-some-tips-tricks-git-specific">4.2.6 Some Tips &amp; Tricks (Git specific)</h3>
+<p>Git has a lot of different commands that are helpful in a variety of situations. I am not going to list them all here, nor their full use, but here are some useful things you may find a use for which you can search for later. </p>
+<ul>
+<li><code>git commit --amend</code><ul>
+<li>Allows you to add things to your last commit in case you forgot files or want to change the commit message</li>
+</ul>
+</li>
+<li><code>git commit -a</code><ul>
+<li>Stage AND commit all of your changes</li>
+<li>Same as running <code>git add .</code> and then <code>git commit</code></li>
+<li><strong>ONLY APPLIES TO TRACKED FILES.</strong></li>
+<li>Don't forget to add a commit message!</li>
+</ul>
+</li>
+<li><code>git stash</code><ul>
+<li>Allows you to save your <em>uncommitted</em> changes if you want to go to a separate branch to do some separate work</li>
+<li>You can get them back via <code>git stash pop</code></li>
+<li>Or drop them via git stash drop</li>
+</ul>
+</li>
+<li><code>git diff</code><ul>
+<li>Shows all the changes you've made (not staged)</li>
+<li>Alternatively <code>git diff --staged</code> shows what is staged but not committed</li>
+</ul>
+</li>
+<li><code>git log</code><ul>
+<li>Shows all the previous commits.</li>
+</ul>
+</li>
+<li><code>git checkout -b &lt;branch-name&gt;</code> <ul>
+<li>Effectively like <code>git branch &lt;branch-name&gt;</code> and <code>git checkout &lt;branch-name&gt;</code> in one command</li>
+</ul>
+</li>
+<li><code>git clean</code><ul>
+<li>Remove untracked files from your working directory</li>
+</ul>
+</li>
+<li><code>git reset</code><ul>
+<li>Unstage changes or revert your working directory to the previous commit</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="43-github">4.3 Github</h2>
+<p>We will now begin sharing our work by reviewing the methods of storing our git repository in the cloud via Github. Sending code back and forth via emails, text messages or through a phone call are all quite inefficient. Sharing our code by means of Github though allows us to collaborate wherever we are without major issues. The majority of this part will be the same for git and Github.</p>
+<h3 id="431-making-a-repository">4.3.1 Making a repository</h3>
+<p>This is the dashboard view of Github, which is most likely the first thing you will encounter once you log in.</p>
+<p><img alt="" src="../img/chapter-4/github_dashboard.png" /></p>
+<p>Clicking the hamburger menu icon (the three lines in the top left) will allow you to navigate most of the website. For now though, try to find the <code>+</code> button towards the top right of the website. Clicking it should reveal <em>New repository</em>. Click it!</p>
+<p>You should now find yourself here:</p>
+<p><img alt="" src="../img/chapter-4/new_github_repository.png" /></p>
+<p>Let's walk through all the options visible on this page:</p>
+<ul>
+<li><strong>Repository name</strong><ul>
+<li>Choose a name for your repository, using <code>-</code> as spaces (e.g. test-repository).</li>
+<li>If you don't care much about what to name it (if you're experimenting) then you can use their standard name marked in green under the text-bar (suggested by Github).</li>
+</ul>
+</li>
+<li><strong>Description</strong><ul>
+<li>Choose some form of description for your project. </li>
+<li>Keep it clear, keep it concise.</li>
+</ul>
+</li>
+<li><strong>Visibility</strong><ul>
+<li>Private or public, if public anyone can view it</li>
+<li>If you're doing it outside of a task, you might want to put it on private<ul>
+<li>But if it <strong>is</strong> for a task, make sure it is public (otherwise I cannot grade)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Template</strong><ul>
+<li>Sometimes you need the same starting files as another project, and in those cases a template is good.</li>
+<li>You won't need to think about it during this course.</li>
+</ul>
+</li>
+<li><strong>README</strong><ul>
+<li>Effectively a longer description.</li>
+<li>Usually contains what the project is, how to use it etc.</li>
+<li>Documentation for your project</li>
+</ul>
+</li>
+<li><strong>.gitignore</strong><ul>
+<li>Things for git to ignore in your project</li>
+<li>Usually things like:<ul>
+<li>Your own system files</li>
+<li>Your own virtual environments</li>
+<li>Packages used in a project (you leave a list of things to install and let the user install them)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>License</strong><ul>
+<li>How are others allowed to use your code?</li>
+<li>There are a bunch, you can google each of them on your own</li>
+</ul>
+</li>
+</ul>
+<p>For now, we'll just fill in a name and make it private. We will now find ourselves here:</p>
+<p><img alt="" src="../img/chapter-4/setup_new_repository.png" /></p>
+<p>Let's similarly walk through everything on this page.</p>
+<ul>
+<li><strong>Codespaces</strong><ul>
+<li>This option will start a cloud development environment (an alternative to coding in VSCode), though this is not very common in most professional settings.</li>
+</ul>
+</li>
+<li><strong>Invite collaborators</strong> <ul>
+<li>If you want to add others to the project immediately, you can do so via the <em>invite collaborators</em> button.</li>
+<li>Not necessary in this case.</li>
+</ul>
+</li>
+<li><strong>Quick setup</strong><ul>
+<li>As it states, more so if you've done this before. Provided you have <strong>Github Desktop</strong> you can click <em>Set up in Desktop</em> to quickly get the repository on your local machine.</li>
+</ul>
+</li>
+<li><strong>New repository on command line</strong><ul>
+<li>If you don't already have a local repository on your computer that you want to push, you can copy the block of code and paste it in your terminal.</li>
+<li>Now you have the repository locally!</li>
+</ul>
+</li>
+<li><strong>Push an existing repository from the command line</strong><ul>
+<li>If you already had a local repository, you can copy the block of code and run it in the same repository as your local one.</li>
+<li>Keep in mind, you may face <strong>conflicts</strong> if you added a README or something similar, as the content will be different.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4 id="git-terminal_5">Git (Terminal)</h4>
+<p>For now, we will use <strong>New repository on command line</strong>. Copy the code block and open up a terminal. If you have a folder for storing programming projects, go to that one using the commands we learned before (<code>ls</code>,<code>cd</code>). Create a separate folder for your project (named the same) and paste the code block. You should now have the project locally (there should be a file called <strong>README</strong> if you want to make sure).</p>
+<hr />
+<h4 id="github-desktop_5">Github Desktop</h4>
+<p><img alt="" src="../img/chapter-4/github_desktop_github_potential_funicular.png" /></p>
+<p>To achieve the same result using Github Desktop, click the <code>Current Repository</code> button far to the top left of Github Desktop. Click the <code>Add</code> button. </p>
+<p><img alt="" src="../img/chapter-4/github_desktop_add_repo.png" /></p>
+<p>You can either log in via Github.com and choose your repository from there, or provide the URL (the link / web address) to the repository. Choose where you want the repository to be stored in <code>Local path</code>.</p>
+<p><img alt="" src="../img/chapter-4/github_desktop_clone.png" /></p>
+<p>The repository should now be on your local machine!</p>
+<h3 id="432-push">4.3.2 Push</h3>
+<h4 id="git-terminal_6">Git (Terminal)</h4>
+<p>Now that we have the project locally, let's try to make some changes to it. Open up the git repository in VSCode (if you're in a terminal, use <code>code .</code>). For instance, we can add a JavaScript file <code>helloWorld.js</code> and write <code>console.log("Hello World!")</code>. Save the file, stage it (<code>git add .</code>) and commit it <code>git commit -m "Add: helloWorld.js"</code> (note the message is not the best, it is merely an example).</p>
+<p>Now that we have made a change in our <em>local</em> repository, you need to <strong>push</strong> that change to the <strong>online</strong> (remote) repository (since it doesn't have your commits). We can achieve that by by using <code>git push</code>. If you now check github under the <strong>commits</strong> button (under the <em>green code button</em>), you should see the commits:</p>
+<p><img alt="" src="../img/chapter-4/pushed_js_file.png" /></p>
+<p><img alt="" src="../img/chapter-4/past_commits.png" /></p>
+<p>To go back to the repository overview, simply click the <code>&lt; &gt; Code</code> button to the top left.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you make a new branch and push, you will most likely have to perform the following command: <code>git push -u origin &lt;branch-name&gt;</code>. This simply informs git <em>where</em> on the remote machine you are trying to push the changes (since the remote machine might not have that branch made yet).</p>
+</div>
+<hr />
+<h4 id="github-desktop_6">Github Desktop</h4>
+<p>When using Github Desktop, we similarly need to make some change. Perform the same change as the Git example above, creating a new JavaScript file <code>helloWorld.js</code> and write <code>console.log("Hello World!")</code>. Returning to the Github Desktop application, you may observe that the button next to <code>Current Branch</code> has changed to <code>Push origin</code>. Click it, and Github Desktop will push your changes to the remote repository.</p>
+<h3 id="433-pull">4.3.3 Pull</h3>
+<h4 id="git-terminal_7">Git (Terminal)</h4>
+<p>This will be more important as you start collaborating, but we will simulate that something has happened on your repository (e.g. someone added a file). For your project locally to be up-to-date, you will need to <strong>pull</strong> those changes.</p>
+<p>Go into Github and press the <code>Add file</code> button, selecting the option to <code>Create new file</code>. button (right next to the <em>green code button</em>). This should take you to an online editor:
+<img alt="" src="../img/chapter-4/github_online_editor.png" /></p>
+<p>In this example, the name and some content is already filled in. Now click the <strong>green commit button in the right corner</strong>. </p>
+<p><img alt="" src="../img/chapter-4/direct_commit_online_editor.png" />
+Fill in some information (as you would with any regular commit) and click <strong>commit changes</strong> (yes, commit directly to the main branch). Once done, go back to the main page (click <code>&lt; &gt; code</code> to return). You should see that there has been another commit and our <code>hello.txt</code> file is present.</p>
+<p><img alt="" src="../img/chapter-4/hellotxt_addition.png" /></p>
+<p>Finally, go back to your repository. Run the command <code>git pull</code> and you should have the changes locally. You may encounter warning text the first time you run <code>git pull</code> as git requires some guidance on how you want to reconcile divergent branches. For the purposes of this course, if you encounter the error you can run this line: <code>git config pull.rebase false</code>. Now git pull will integrate the changes via a merge. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>git pull</code> is technically a combination of two commands: <code>git fetch</code> (which fetches changes from the remote repository) and <code>git merge</code> (usually) which merges the new changes with what existed in your repository previously.     </p>
+</div>
+<hr />
+<h4 id="github-desktop_7">Github Desktop</h4>
+<p>Using Github Desktop, the process is quite simple. Perform the same actions as the Git specific tutorial above, until you are supposed to run the command <code>git pull</code>. Instead, navigate to your Github Desktop and press <code>Fetch changes</code> next to <code>Current branch</code>. The button should change into <code>Pull origin</code>, which you may then press to receive the remote changes in your local machine.</p>
+<p><img alt="" src="../img/chapter-4/github_desktop_fetch_pull.png" /></p>
+<h3 id="434-conflicts">4.3.4 Conflicts :(</h3>
+<h5 id="git-terminal_8">Git (Terminal)</h5>
+<p>Eventually, you will run into git conflicts. You and your friend both changed the same line in a file, so git does not know which to use. You will need to resolve the conflict before git moves on, which can feel daunting if you've never dealt with it before. </p>
+<p>The steps for Git and Github differ little in this section, as it will primarily be focused on conflicts resolved in Github.</p>
+<p>Let's simulate another example:</p>
+<ul>
+<li>On your local machine, make a new branch we'll call <code>local-branch</code> (<code>git branch local-branch</code>)</li>
+<li>Then switch to it (<code>git checkout local-branch</code>). </li>
+<li>Open up your <code>helloWorld.js</code> file on your local machine and edit the first line to say <code>console.log("Hello Local!")</code>. </li>
+<li>Stage the changes and commit them (<code>git add *</code> &amp; <code>git commit -m "Fix: Changed to greet local")</code>). </li>
+<li>Push the change (<code>git push -u origin local-branch</code>)</li>
+</ul>
+<p>Now go into Github, and similarly to our previous example to focused on <code>git push</code>, we'll perform some changes directly on Github. Click the <code>helloWorld.js</code> file on Github and you should find yourself here:</p>
+<p><img alt="" src="../img/chapter-4/github_edit_js_file.png" /></p>
+<p>Now click the pen icon (roughly top right, underneath <em>History</em>) to enter edit mode. We now find ourselves in an online editor again. Change the line to <code>console.log("Hello Remote!")</code>. Click the <em>Commit changes</em> button in the top right to commit (directly on the main branch).</p>
+<p>Let's now go back to our local machine (still on <code>local-branch</code>) and add a second line to <code>helloWorld.js</code> (in this example, simply the text <code>Another line!</code> was added. Stage the change (<code>git add *</code>), commit (<code>git commit -m "Add: Random line"</code>) and push (<code>git push</code>).</p>
+<h5 id="github-desktop_8">Github Desktop</h5>
+<p>Similarly on Github Desktop: 
+- Make a branch <code>local-branch</code> and switch to it.
+- Open the <code>helloWorld.js</code> file on your local machine and edit the first line to say <code>console.log("Hello Local!")</code>. 
+- Commit the changes. 
+- Push the changes.</p>
+<hr />
+<p>Let's head back to our overview (click the <code>&lt; &gt; Code</code> button in the <em>almost</em> top left). You'll see that a branch had changes at the top of the page underneath the repository name:</p>
+<p>(example for Github Desktop project)
+<img alt="" src="../img/chapter-4/github_desktop_new_changes.png" /></p>
+<p>(example for Git with Terminal project)
+<img alt="" src="../img/chapter-4/recent_pushes_github.png" /></p>
+<p>Press <code>Compare &amp; pull request</code> and it should look like the following:</p>
+<p><img alt="" src="../img/chapter-4/open_pull_request_no_merge.png" /></p>
+<p>This is where you create requests to merge branches together in Github, which are later reviewed (to ensure the changes are of quality). Further down the page, you can see a summary of the changes when attempting to merge the two branches:</p>
+<p><img alt="" src="../img/chapter-4/incompatible_merge_changes.png" /></p>
+<p>In essence, your git (and Github by extension) realized that there were two different commits both trying to change the first line of the JavaScript file. We now need to solve the issue by either:</p>
+<ul>
+<li>Choosing our local changes</li>
+<li>Choosing our remote changes</li>
+<li>Mixing them together</li>
+</ul>
+<p>Click on the green button <code>Create pull request</code> on the same page. You should arrive here:</p>
+<p><img alt="" src="../img/chapter-4/create_pull_request_fix_conflict.png" /></p>
+<p>Observe Github prompts you to resolve the conflicts before the branch can be automatically merged. Click on the button <code>Resolve conflicts</code> and you'll enter an online editor (this can be done locally, but for this example we're doing it in Github):</p>
+<p><img alt="" src="../img/chapter-4/online_editor_base_conflict.png" /></p>
+<p>You'll notice these are the changes from both branches, separated by many equal signs and boxed in by several &lt;&lt;&lt;&lt;&lt; and &gt;&gt;&gt;&gt;&gt;&gt;. These are the lines Github needs help solving, as it is rarely every line in a file that causes a merge conflict.</p>
+<p>The first part underneath the first line <code>&lt;&lt;&lt;&lt;&lt; local-branch</code> are the changes from <code>local-branch</code>, while the second are the changes from the <code>main</code> branch. If we want to save only the <code>local-branch</code> changes, we would change the file accordingly:</p>
+<p><img alt="" src="../img/chapter-4/online_editor_local_only.png" /></p>
+<p>If we instead want the changes from main, we would do the following:</p>
+<p><img alt="" src="../img/chapter-4/online_editor_main_only.png" /></p>
+<p>Or if we want to merge the changes to keep both, we remove the arrows and equal signs to mark we want the first two lines from <code>local-branch</code> and move the first line from <code>main</code> to the third line (observe the screenshot below).</p>
+<p><img alt="" src="../img/chapter-4/online_editor_combination.png" /></p>
+<p>Without the equal sign and arrow markers, git now knows you want them on lines 1, 2 and 3.</p>
+<p>Once the conflict is resolved, click <code>Mark as resolved</code> to the far right. In this case, we'll use the option of keeping all the lines from both branches. Once clicked, you'll see a green checkmark and now you're able to click <code>Commit merge</code>:</p>
+<p><img alt="" src="../img/chapter-4/online_editor_resolved.png" /></p>
+<p>Once clicked, you will return to the pull request and be able to click <code>Merge pull request</code> to merge the two:</p>
+<p><img alt="" src="../img/chapter-4/pull_request_automerge_available.png" /></p>
+<p>Do so and confirm the merge.</p>
+<p><img alt="" src="../img/chapter-4/pull_request_automerge_commit.png" /></p>
+<p>The merge is now complete and you're given the option to delete your branch. You don't have to, though since branches are often related to features or issues it often makes sense to. In the end, this depends on context.</p>
+<p>With everything finished, you can now go back to <code>&lt; &gt; Code</code> and the fictional project would go on.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "header.autohide", "search.suggest", "navigation.path", "navigation.top", "toc.integrate", "navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.expand"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

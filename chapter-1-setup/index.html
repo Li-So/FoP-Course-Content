@@ -1,0 +1,1092 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../chapter-2-variables-functions/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Chapter 1 - Setup - Foundations of Programming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+    
+      <link rel="stylesheet" href="../css/style.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#11-mini-chapter-systems-architecture-optional-chapter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Foundations of Programming Docs" class="md-header__button md-logo" aria-label="Foundations of Programming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Foundations of Programming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 1 - Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Chapters
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Foundations of Programming Docs" class="md-nav__button md-logo" aria-label="Foundations of Programming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Foundations of Programming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 - Setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 - Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-mini-chapter-systems-architecture-optional-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Mini Chapter: Systems Architecture (optional chapter)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#121-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.1 VSCode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#122-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.2 Git
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#123-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.3 NodeJS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#124-github-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.4 Github Desktop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#125-the-nuclear-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.5 The nuclear option
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Extensions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Extensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-prettier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.1 Prettier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-p5js-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.2 P5JS Extension
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133-runner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.3 Runner
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-task-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Task Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-hello-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Hello World!
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-testing-prettier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 Testing Prettier
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-2-variables-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 - Variables & Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-3-conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 - Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-4-git-github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4 - Git & Github
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-5-loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5 - Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-6-arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6 - Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-7-OOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7 - Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href=".." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Chapter 1 - Setup</h1>
+
+<h2 id="11-mini-chapter-systems-architecture-optional-chapter">1.1 Mini Chapter: Systems Architecture (optional chapter)</h2>
+<p>You don't have to read this chapter, though if you run into issues installing software, this may be a good place to look.</p>
+<p>In most of the installation guides, I will refer to <em>x64, ARM64</em> and possibly some other architectures. The short version is, if you download software made for a different one than your system, it may not work. For many of you, this will probably not be an issue, but in case things don't work, this may be worth checking.</p>
+<p>You can check your system in the following ways:</p>
+<ul>
+<li>Windows<ul>
+<li>Alternative 1: The visual way<ul>
+<li>Go to settings, then the <em>About</em> section.</li>
+<li>Under <em>device specifications</em> you should see device type, which will say what you're using.</li>
+</ul>
+</li>
+<li>Alternative 2: The cool way<ul>
+<li>Open up Windows Powershell and run <code>Get-ComputerInfo | findstr "CsSystemType"</code><ul>
+<li>Alternatively, you can use <code>systeminfo | findstr /C:"System Type</code></li>
+</ul>
+</li>
+<li>This should print the systemtype you have.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Mac<ul>
+<li>If you run <code>uname -m</code> it should print the system type you use e.g: <em>arm64</em></li>
+</ul>
+</li>
+<li>Linux<ul>
+<li>If you run <code>uname -m</code> it should print the system type you use e.g: <em>x86_64</em>.</li>
+</ul>
+</li>
+</ul>
+<p>x64? ARM? Legs?
+<a href="https://www.partitionwizard.com/partitionmanager/arm64-vs-x64.html">What does he mean?</a></p>
+<hr />
+<h2 id="12-tools">1.2 Tools</h2>
+<p>Listed below are some of the tools we will use throughout the course and how to install them. They include the chosen code editor VSCode, Git, NodeJS and some extensions we will need for VSCode. While there are other alternatives one might use, these were chosen due to popularity of use in the industry.</p>
+<h2 id="121-vscode">1.2.1 VSCode</h2>
+<p>This is the code editor you'll be using for this entire course (and often while doing web development in general). Keep in mind it is not a full <em>IDE (integrated development environment)</em> so we'll need a few extra things to really get started.</p>
+<p>You'll find the download link here for most platforms: <a href="https://code.visualstudio.com/Download">Download VSCode</a></p>
+<p>Choose one that is appropriate for your computer (the largest download buttons should also work):</p>
+<ul>
+<li>Windows<ul>
+<li>Most likely, you have <em>x64</em>, if you want the simplest version choose the <em>User Installer System</em>.</li>
+</ul>
+</li>
+<li>Linux<ul>
+<li>This depends on your distro, but if you use Linux you probably know ;)</li>
+</ul>
+</li>
+<li>Mac<ul>
+<li>Assuming the "big" download button doesn't work, it might depend on your CPU. Assuming it doesn't work, <em>try the Intel version</em> (since I am under the impression most have Apple Silicon).</li>
+</ul>
+</li>
+</ul>
+<p>Once you've downloaded it and traversed through the guides, you need somewhere to put your code. Create a folder somewhere on your computer (e.g. inside of Documents) and name it something appropriate (<strong>not</strong> "New Folder"):</p>
+<p><img alt="" src="../img/chapter-1/empty_new_folder.png" /></p>
+<p>Enter it via VSCode (menu should be in the top left):</p>
+<p><img alt="" src="../img/chapter-1/vscode_open_folder.png" /></p>
+<p>Now you have somewhere to put all your code and your projects. My suggestion for most assignments is to divide assignments into either separate files or entirely separate folders. This will make it easier for you to find them later.</p>
+<h2 id="122-git">1.2.2 Git</h2>
+<p>This version control software is integral later in the course (and for any future programming you do), so ensure the install works from the very beginning.</p>
+<p>You'll find the download link here for most platforms: <a href="https://git-scm.com/downloads">Download Git</a></p>
+<ul>
+<li>Windows<ul>
+<li>Download the latest <em>x64</em> version featured at the top (or via the standalone installer), unless you happen to have ARM64.</li>
+<li>Test that it works via either CMD or Windows Powershell and write: <code>git --version</code>. Hopefully it should print the current git version, which means you've succeeded.</li>
+</ul>
+</li>
+<li>Linux<ul>
+<li>Git should already be installed</li>
+<li>But if it isn't, it will depend on your distro.</li>
+<li>Test that it works via your chosen terminal and write: <code>git --version</code>. Hopefully it should print the current git version, which means you've succeeded.</li>
+</ul>
+</li>
+<li>Mac<ul>
+<li>Alternative 1: Apple Store<ul>
+<li>Apple should ship a version of Git on their store. Download it and it should work.</li>
+</ul>
+</li>
+<li>Alternative 2: Terminal<ul>
+<li>Apple ships git via XCode, their tools for development</li>
+<li>On your Mac, search for <em>Terminal</em>.</li>
+<li>Inside of the terminal, paste this: <code>xcode-select --install</code> and click enter.</li>
+</ul>
+</li>
+<li>Test that it works via the Terminal app on Mac and write: <code>git --version</code>. Hopefully it should print the current git version, which means you've succeeded.</li>
+</ul>
+</li>
+</ul>
+<h2 id="123-nodejs">1.2.3 NodeJS</h2>
+<p>NodeJS is a JavaScript runtime environment that will let us run JavaScript inside of our VSCode setup. You'll also be using it later in web development courses.</p>
+<p>You'll find the download link here for most platforms: <a href="https://nodejs.org/en/download">Download NodeJS</a></p>
+<p>I suggest going for the prebuilt Node.js packages found a little further down the page, here:
+<img alt="" src="../img/chapter-1/download_nodejs.png" /></p>
+<ul>
+<li>Windows<ul>
+<li>I suggest getting the prebuilt Node.js package with system architecture fitting your computer's specifications.</li>
+<li>Should be rather simple via a provided Windows Installer.</li>
+<li>Test that it works via either CMD or Windows Powershell and write: <code>node --version</code>. Hopefully it should print the current node version, which means you've succeeded.</li>
+</ul>
+</li>
+<li>Linux<ul>
+<li>Should be available on your distro's package manager, if not there is a standalone binary file you could use.</li>
+<li>Test that it works via your chosen terminal and write: <code>node --version</code>. Hopefully it should print the current node version, which means you've succeeded.</li>
+</ul>
+</li>
+<li>Mac<ul>
+<li>I suggest getting the prebuilt Node.js package with system architecture fitting your computer's specifications.</li>
+<li>Should be rather simple via a provided macOS Installer.</li>
+<li>Test that it works via your Terminal app on Mac and write: <code>node --version</code>. Hopefully it should print the current node version, which means you've succeeded.</li>
+</ul>
+</li>
+</ul>
+<p>Now that you have node, you can actually run any JavaScript files on your computer using the command <code>node &lt;yourFile&gt;</code> in your terminal. This is quite tedious though, and not something I immediately want you to think too much about, so we'll install an extension runner later to avoid it.</p>
+<h2 id="124-github-desktop">1.2.4 Github Desktop</h2>
+<p>Github Desktop is a software that will make interactions with Github easier for those who may not be well acquainted with using git and want an easier way to get started as compared to the command-line.</p>
+<p>You'll find the link here for Windows &amp; Mac: <a href="https://desktop.github.com/download/">Download Github Desktop</a></p>
+<p>Once you've downloaded it, try opening it up to see if it works!</p>
+<h2 id="125-the-nuclear-option">1.2.5 The nuclear option</h2>
+<p>Assuming nothing works for one reason or another, there are a few online JavaScript editors which will allow you to get started on tasks:</p>
+<ul>
+<li><a href="https://editor.p5js.org/">p5js online editor</a><ul>
+<li>By removing the draw and setup functions (blank textbox), you can use it as a "normal" code editor.</li>
+<li>Allows you to save projects if you are signed up</li>
+<li><strong>DOES</strong> work for p5js code.</li>
+</ul>
+</li>
+<li><a href="https://www.programiz.com/javascript/online-compiler/">Programiz</a><ul>
+<li>Simple enough and allows you to run standard JavaScript code</li>
+<li>Will <strong>NOT</strong> work for p5js code.</li>
+</ul>
+</li>
+<li>The Console<ul>
+<li>In the absolute worst case scenario, code can be written in a separate environment and pasted in the console of any browser.</li>
+<li>Will <strong>NOT</strong> work for p5js code.</li>
+<li>If you are unfamiliar with it, I can showcase an example.<ul>
+<li>This is truly the absolute worst case scenario and should not be considered an option.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>While browser-based code editors like these are easy to get started in, they are seldom used in true development environments, which is why we'll avoid them for the most part.</p>
+<hr />
+<h2 id="13-extensions">1.3 Extensions</h2>
+<p>There are some extensions in VSCode we will require to make everything work. These are found under the extensions tab to the left in VSCode (assuming standard settings):</p>
+<p><img alt="" src="../img/chapter-1/extensions_list.png" /></p>
+<p>You simply search for extensions and install them! They may include anything including e.g. highlighters, themes (such as <em>Catppuccin</em> in my case), framework support etc. I recommend installing ones with a certain amount of installs / stars though, as there may be suspicious code in some of them.</p>
+<h3 id="131-prettier">1.3.1 Prettier</h3>
+<p>Search up <strong>prettier</strong> on VSCode extensions and install.</p>
+<p>Prettier is a code formatter we will use for a consistent code style. Once you've searched for it and installed it (should be first in the list, about 60.000.000 installs):</p>
+<p><img alt="" src="../img/chapter-1/prettier_extension.png" /></p>
+<p>Now that it is installed, go to your settings (bottom right):
+<img alt="" src="../img/chapter-1/finding_vscode_settings.png" /></p>
+<p>Search for <em>formatter</em> in the settings search bar and change the default formatter to Prettier. Make sure to also enable <em>Format on Save</em>.</p>
+<h3 id="132-p5js-extension">1.3.2 P5JS Extension</h3>
+<p>In order to write p5js code in our own editor, we'll be using an extension created by the previous teacher of the course, Garrit. Search up <strong>p5js garrit</strong> on VSCode extensions and install the one highlighted below:</p>
+<p><img alt="" src="../img/chapter-1/p5js_extension.png" /></p>
+<p>Open / create any JavaScript file using VSCode. You should note a small button/icon close to the bottom left corner:</p>
+<p><img alt="" src="../img/chapter-1/p5js_canvas_button.png" /></p>
+<p>If you press it, a canvas should appear in a separate window. It will automatically run your code without the use of NodeJS or the next extension <em>runner</em> (see below). This is in large part due to p5js re-running code constantly, but this extension will be the default tool for your p5js assignments.</p>
+<h3 id="133-runner">1.3.3 Runner</h3>
+<p>A small extension purely for our own quality of life. Search for <strong>runner jun han</strong> on VSCode extensions and install install what should be the top one:</p>
+<p><img alt="" src="../img/chapter-1/code_runner_extension.png" /></p>
+<p>Once installed, you should note a small "play" button near the top right corner of VSCode. Pressing the button while inside of a JavaScript file will use our previously installed NodeJS to execute the code in a nice and easy way. Wonderful for learning basic programming logic or just testing a code snippet without using the browser.</p>
+<h2 id="14-task-types">1.4 Task Types</h2>
+<p>Not all tasks in this worksheet will be problem solving tasks. Some will include examples where you merely type the code into your own editor to understand what is happening when the code runs. This is especially true for the beginning of the worksheet, as a strong fundamental understanding is required before tackling the more complex tasks. Don't skip these tasks! Writing code on your own and taking a moment to understand it will further your understanding far more than copying with no thought. I also strongly urge you to change minor details in these tasks to familiarize yourself with what might work and what might not.</p>
+<hr />
+<h2 id="15-hello-world">1.5 Hello World!</h2>
+<p>Let's create a simple beginner script to print "Hello World" for us to see if the development environment works. Open up <em>VSCode</em> and choose a folder (directory) to work in. In this new folder, create a new file called <code>helloWorld.js</code> (you can make one via the <em>new file</em> button to the left).</p>
+<p><img alt="" src="../img/chapter-1/vscode_new_file.png" /></p>
+<p>Write the following lines in your editor and run the code via the play button we have via the <em>runner</em> extension:</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">);</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Assuming everything is installed correctly, a terminal should display the text <em>"Hello World!"</em>. Once you've made sure it works, try changing something in the line, save and run the program again. You'll most likely run into an error (which is good!). Fix the error, save, and re-run the program. Try this a few different times to see what errors you manage to get and try to decipher what they mean.</p>
+<h2 id="16-testing-prettier">1.6 Testing Prettier</h2>
+<p>In the same file <code>helloWorld.js</code>, add the following lines (with spacing as is):</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">3</span><span class="p">);</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Notice how the spacing is different for each line? Technically the interpreter/compiler won't mind, but to programmers this is <em>extremely</em> important for bug fixing and consistency. Assuming your Prettier extension works and has been set up properly, the file should automatically format when saved (<em>ctrl/command + s</em> usually). Note that even if you have auto save enabled, Prettier requires a manual save to auto format.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "header.autohide", "search.suggest", "navigation.path", "navigation.top", "toc.integrate", "navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.expand"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
