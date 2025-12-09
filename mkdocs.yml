@@ -9,6 +9,7 @@ nav:
           - Chapter 5 - Loops: chapter-5-loops.md
           - Chapter 6 - Arrays: chapter-6-arrays.md
           - Chapter 7 - Object-Oriented Programming: chapter-7-OOP.md
+          - Chapter 8 - Github Pages: chaper-8-special-github-pages.md
 
 theme:
     name: material
@@ -46,6 +47,7 @@ theme:
         - search:
               indexing: "sections"
 markdown_extensions:
+    - attr_list
     - admonition
     - def_list
     - pymdownx.tasklist:
