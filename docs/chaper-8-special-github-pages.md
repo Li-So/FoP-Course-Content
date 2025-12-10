@@ -2,7 +2,7 @@ When you've finished with your p5js project and when all working code is merged 
 
 ## 1.1 Crossing T's, dotting I's
 
-First, make sure you download this file: [p5.min.js](./js/p5.min.js){:download="p5.min.js"}. This file replaces the use of our extension when rendering our p5js games. There is no need to understand nor change anything in the file. Make sure to put this file in your project.
+First, make sure you download this file: [p5.min.js](js/p5.min.js){:download="p5.min.js"}. This file replaces the use of our extension when rendering our p5js games. There is no need to understand nor change anything in the file. Make sure to put this file in your project.
 
 Make sure that your `index.html` file contains the following lines:
 
@@ -54,21 +54,21 @@ Explaining exactly what it does is a little beyond the scope of this course, but
 	If any part of the following is not visible to you, such as not seeing a Pages part of the Github settings, contact me immediately.
 
 Navigate to your repository on Github Pages and look for `Settings` towards the upper right corner:
-![alt text](/img/chapter-8/fyp-repo.png)
+![alt text](img/chapter-8/fyp-repo.png)
 
 
 Once there, find your way to `Pages`.
-![alt text](/img/chapter-8//img/chapter-8/fyp-repo-settings.png)
+![alt text](img/chapter-8/fyp-repo-settings.png)
 
 Next, make sure it says `Deploy from a branch` under `Source`. Under branch, click on `None` and select `main`. Don't change the directory folder to the right of the branch. Now click `save`.
-![alt text](/img/chapter-8/fyp-repo-pages-config.png)
+![alt text](img/chapter-8/fyp-repo-pages-config.png)
 
 Going back to our repository, you should now see a small yellow dot above your code:
-![alt text](/img/chapter-8/fyp-repo-building.png)
+![alt text](img/chapter-8/fyp-repo-building.png)
 
 If you refresh it periodically, it should eventually turn into a green checkmark. Once it does, go back to where we adjusted pages:
 
-![alt text](/img/chapter-8/fyp-repo-pages-ready.png)
+![alt text](img/chapter-8/fyp-repo-pages-ready.png)
 
 Click `Visit site` and you should see your game running in the browser!
 
