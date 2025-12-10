@@ -26,6 +26,8 @@ Note specifically the lines with `<script>`. That is where we will load both our
 
 Once you have checked that both the `p5.min.js` and `index.html` files need to be the same as provided here or there is a risk it will not work. You may need to adapt the paths if you use folders inside of your project, but if `game.js`, `p5.min.js` and `index.html` are outside of all folders, then it should work.
 
+Do double check imports so that they all include `.js`, e.g. `import { Button } from "./button.js"`. In addition, even if you include e.g. `export default class SomeClass`, be sure to include `export { SomeClass }` at the bottom of the file (as well as anything else being exported). This becomes required as we are actually forcing p5js to act in a way it is not supposed to, so it is an approach we will have to live with.
+
 ## 1.2 Adding the necessary lines
 
 Assuming we now have all the files in place, there are four lines that need to be added to the end of our `main.js` file:
@@ -47,6 +49,9 @@ window.addEventListener("keydown", function (event) {
 ```
 
 Explaining exactly what it does is a little beyond the scope of this course, but the essence of it is that it allows the p5js library to use your code and show it on the website. You will need to add these lines for the game to render, react to clicks or keypresses.
+
+!!! Note
+	Assuming you are not using the standard p5js functions mousePressed and keyPressed, you will need to call what you use from the `window.addEventListener` functions.
 
 ## 2. Github Pages and you
 
