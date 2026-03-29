@@ -1,7 +1,7 @@
 Objects in JavaScript are collections of related data and/or functionality. Usually they contain several variables and functions, referred to as **properties** and **methods** when inside objects. They will combine everything you've learned so far about JavaScript and will be used to structure your game later on!
 
-## 6.1 Object basics
-### 6.1.1 Declaring an object
+## 7.1 Object basics
+### 7.1.1 Declaring an object
 Let's look at a basic and empty object called dog:
 
 ```js
@@ -63,7 +63,7 @@ This provides further structuring in more complex objects and enables us to give
 
 What we've created is called an **object literal**. In essence, we've written out the object contents as we've come to create it, which is different to instantiating them from **classes** (more on that later). The reason we use objects frequently is often due to structure and data transfer. When you have related data in this fashion, it would be less efficient to send as several individual items. Arrays may be preferable in certain situations, but objects are usually the standard.
 
-### 6.1.2 Accessing an object
+### 7.1.2 Accessing an object
 Let's now try to access some of these properties and call the method.There are two different ways to do this, using either the **dot** notation or the **bracket** notation. In both cases, we will need to access the **namespace** of an object to access anything inside of the object. For instance, we cannot simply call `bark()` in our code and expect it to know we mean the method we declared in the dog object. 
 
 Let's look at the dot notation first (using the dog object from previously):
@@ -98,7 +98,7 @@ person["name"]["last"] // Sonnerhed
 
 One may find that using brackets is quite similar to accessing arrays, which is why objects are sometimes called **associative arrays**, as you map strings to values instead of indexes to values. Dot notation is generally preferred for readability, but there are cases where brackets are the only option (explained later in this chapter).
 
-### 6.1.3 Changing an object
+### 7.1.3 Changing an object
 
 While retrieving (or *getting*) object members is useful, we also want to update or *set* them. You can do this with both dot and bracket notation:
 
@@ -144,7 +144,7 @@ person[dataName] = dataValue;
 
 Without having provided a standard value for height beforehand, we can now set it dynamically should the user want to.
 
-### 6.1.4 The *this* keyword
+### 7.1.4 The *this* keyword
 When working with objects, you may want to use object properties or methods in other parts of the object. For instance, let's enable a user to introduce themselves:
 
 ```js
@@ -181,10 +181,10 @@ const person2 = {
 
 They would print their own names, as this only refers to the current object the code is being executed in.
 
-## 6.2 Making many objects
+## 7.2 Making many objects
 While object literals are useful, it would be too inefficient to write them in larger quantities. Instead, we can make a blueprint or rough "shape" of an object, including what properties and methods it should have. Once we have them, we can update the values of the objects that are different.
 
-### 6.2.1 Function to make objects
+### 7.2.1 Function to make objects
 
 For now, we'll create a basic object creating function:
 
@@ -219,7 +219,7 @@ pratt.introduceSelf(); // Hi! I'm Pratt.
 
 Now all of our objects will be created in the same manner which is a very common pattern. 
 
-### 6.2.2 Constructors
+### 7.2.2 Constructors
 
 Our approach is somewhat inefficient however, as we have to create an empty object, initialize it, return it... Things that would be the same for creating any object generating function. 
 
@@ -255,7 +255,7 @@ const dennis = new Person("Dennis");
 dennis.introduceSelf(); // Hi! I'm Dennis.
 ```
 
-## 6.3 Previous familiarity
+## 7.3 Previous familiarity
 These examples are probably familiar, as you've already been interacting with objects throughout the course. They are more complex than the objects we've created, but they are objects nonetheless.
 
 Some examples include:
@@ -270,7 +270,7 @@ Some examples include:
 	- `.push()`
 	- `.pop()`
 
-## 6.3.1 The return of the for loop
+## 7.3.1 The return of the for loop
 Objects can of course also be looped, but it requires use of the `for ... in` loop:
 
 ```js
@@ -307,10 +307,10 @@ for (let property in person) {
 
 In the example above, the name property only prints `[object Object]`. You would need to loop through the sub-object as well to properly print the values.
 
-## 6.4 Object-Oriented Programming
+## 7.4 Object-Oriented Programming
 Object-Oriented Programming (OOP) is an approach to programming using objects. It aims to create a system as a collection of objects where each object is some part of that system, with methods and properties just like in our simple objects. Usually in OOP, objects also have a public part (accessible to other pieces of code) and a private part (only accessible by the object itself).
 
-### 6.4.1 Introduction to classes and instances
+### 7.4.1 Introduction to classes and instances
 To model problems in OOP, we create some abstract definition representing the type of object in our system. For instance, let's imagine we are attempting to model a school and we want to represent professors.
 
 How can we represent them?
@@ -337,7 +337,7 @@ class Professor
 ```
 On it's own, the class does nothing, but acts more as a template for creating concrete objects of that type. Every concrete instance we create is called an **instance** of the Professor class. Classes usually include constructors, which we can use ot set internal values we want to initialize in a new instance.
 
-### 6.4.2 Declaring a class
+### 7.4.2 Declaring a class
 
 Declaring a class requires the `class` keyword. Here is our Professor class but real JavaScript code:
 
@@ -397,7 +397,7 @@ const amora = new Cat();
 amora.sleep(); // zzzz
 ```
 
-### 6.4.3 Inheritance & Polymorphism
+### 7.4.3 Inheritance & Polymorphism
 Let's assume we want to also represent students in our school. There are some differences between the two, such as students being unable to grade papers and being unable to teach a subject. On the other hand, they also have names and may want to introduce themselves. Additionally, they might have properties professors don't, such as what year they belong to.
 
 Let's create a Student class in pseudocode:
@@ -456,7 +456,7 @@ However, we did not replace `introduceSelf()`. If we had excluded the `introduce
 
 Using the same name but with a different implementation in a different class is effectively **Polymorphism**.
 
-### 6.4.4 Encapsulation
+### 7.4.4 Encapsulation
 
 Objects in OOP should provide an interface to other code that wants to use them, but they should maintain their own internal state. This internal state is kept **private** which means it can only be accessed by the objects' own methods, not from other code. Maintaining some object's internal state and making a clear division between public interface and private internal state is called **encapsulation**.
 
@@ -524,7 +524,7 @@ class Student extends Person {
 	}
 
 		canStudyArchery(){
-		return this.#year > 1
+		return this.#year > 1;
 	}
 }
 ```
@@ -532,12 +532,12 @@ class Student extends Person {
 Attempting to access the private variable via `.year` will now give us an error. Some languages don't enforce this, but to show it is a private variable, there are naming conventions, such as starting a variable name with an underscore `_` to indicate it is considered private.
 
 
-### 6.4.5 Data abstraction
+### 7.4.5 Data abstraction
 Keep in mind, should we have a complicated class with intricate methods and myriads of properties, there is no need to show all of this to a user of our class. Exposing only the functionality needed by the user without making it too complex in an easy interface is known as **data abstraction** and is also a frequently used pattern in OOP.
 
-## 6.5 Tasks (OOP)
+## 7.5 Tasks (OOP)
 
-### 6.5.1 Create a car object
+### 7.5.1 Create a car object
 Create a car object literal with properties:
 
 - wheels: some number of wheels
@@ -551,12 +551,12 @@ It should also have methods:
 
 Try to use `console.log()` to list the properties and to call both methods.
 
-### 6.5.2 Expanding the car object
+### 7.5.2 Expanding the car object
 Change the owner property of the car object to a be an object instead of an array. Appropriately name some datanames for the first and last names. In addition, add the dataname `hasDriversLicense` in the new owner object and make it a boolean.
 
 Add a new object method `ownerCanDrive(){}` which returns the value of `hasDriversLicense`. Use the `this` keyword!
 
-### 6.5.3 Making a car factory
+### 7.5.3 Making a car factory
 Make a constructor for the car object literal we've made so far. Set the following properties and methods:
 
 - Properties
@@ -571,4 +571,5 @@ Make a constructor for the car object literal we've made so far. Set the followi
 
 Once done, try calling any of the methods or using `console.log()` on any of the properties on a newly created car object.
 
-### 6.5.4 Making the car class
+### 7.5.4 Making the car class
+
